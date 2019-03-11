@@ -81,5 +81,6 @@ E-mail | 掘金 | 博客园
     * gulp
     * npm
 ## 结语
-可以给我打打气，鼓励鼓励，给个star或者请我喝杯奶茶吖
+ 可以给我打打气，鼓励鼓励，给个star或者请我喝杯奶茶吖
+
 ![](https://github.com/sueRimn/Blog/blob/master/source/alipay.jpg)
