@@ -28,46 +28,46 @@ E-mail | 掘金 | 博客园
      * css预处理
         * less 
         * sass
-  * JavaScript Web API
-    * 基础知识
-      * 数据类型
-      * 变量
-      * 表达式与运算符
-      * 控制语句
-      * 函数
-      * 异常处理
-    * DOM操作
-    * BOM操作
-    * 原型与原型链
-    * 作用域与闭包
-    * 事件
-    * ES6
-    * AJAX异步操作
-    * Regex 正则表达式
-    * HTTP协议
-    * 存储
-    * Websocket
-    * JSON与XML
-    * JQuery
-    * 浏览器兼容性处理
-    * SEO网站优化
-    * 前端框架  
-      * NodeJs
-      * VUE
-      * Angular
-      * React 
-      * ZeptoJS 
-    * 移动开发
-      * 微信小程序
-    * Chrome调试
-    * 性能优化
-    * 项目部署
-    * Emmet快速编写
-    * 代码规范
-    * 前端开发小工具
-    * 文档工具
-    * web安全 
-      * 跨域处理
+     * JavaScript Web API
+         * 基础知识
+            * 数据类型
+            * 变量
+            * 表达式与运算符
+            * 控制语句
+            * 函数
+            * 异常处理
+       * DOM操作
+       * BOM操作
+       * 原型与原型链
+       * 作用域与闭包
+       * 事件
+       * ES6
+       * AJAX异步操作
+       * Regex 正则表达式
+       * HTTP协议
+       * 存储
+       * Websocket
+       * JSON与XML
+       * JQuery
+       * 浏览器兼容性处理
+       * SEO网站优化
+       * 前端框架  
+         * NodeJs
+         * VUE
+         * Angular
+         * React 
+         * ZeptoJS 
+       * 移动开发
+         * 微信小程序
+       * Chrome调试
+       * 性能优化
+       * 项目部署
+       * Emmet快速编写
+       * 代码规范
+       * 前端开发小工具
+       * 文档工具
+       * web安全 
+         * 跨域处理
 2. [代码版本管理]()
     * Git与Github 
     * GitHub markdown语法
