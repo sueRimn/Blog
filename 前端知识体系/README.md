@@ -1,9 +1,9 @@
 1. 前端知识体系
     * [开发工具](开发工具.md) 
-    * [HTML](/HTML)
+    * HTML
       * [HTML基础](HTML/HTML基础.md)
       * [HTML5](HTML/HTML5.md)
-    * [CSS](css)
+    * CSS
       * [基础知识](css/css基础.md)
       * [进阶](css/css3.md)
       * 布局
