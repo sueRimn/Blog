@@ -5,18 +5,14 @@ E-mail | 掘金 | 博客园
 ------------ | ------- | ------
 1658318062@qq.com | [sueRimn](https://juejin.im/user/5ac449906fb9a028b92d59d1) | [狐狸家的鱼](https://www.cnblogs.com/suRimn)
 ## 目录
-1. [前端知识体系](https://github.com/sueRimn/Blog/tree/master/%E5%89%8D%E7%AB%AF%E7%9F%A5%E8%AF%86%E4%BD%93%E7%B3%BB)
+1. [前端知识体系](./前端知识体系)
     * [开发工具](./前端知识体系/开发工具.md) 
-    * [HTML](./前端知识体系//HTML)
-      * HTML元素
-      * 标签的语义化
-      * 标签节点 层级
-    * XHTML
-    * HTML5
-     * Canvas
+    * [HTML](./前端知识体系/HTML)
+      * [HTML基础](./前端知识体系/HTML/HTML基础.md)
+      * [HTML5](./前端知识体系/HTML/HTML5.md)
     * CSS
-      * 基础知识
-      * 进阶
+      * [基础知识](./前端知识体系/css/css基础.md)
+      * [进阶](./前端知识体系/css/css3.md)
       * 布局
         * 页面快速布局 
         * 移动端布局 
