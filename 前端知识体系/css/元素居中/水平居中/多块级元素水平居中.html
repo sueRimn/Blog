@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="style.css">
+<title>多块级元素居中</title>
+<style lang="">
+/* 1.利用flex布局 */
+    /* .container{
+        display: flex;
+        justify-content: center;
+        background-color: antiquewhite;
+    }
+    .child-1, .child-2, .child-3{
+        width: 100px;
+        height: 60px;
+        background-color: pink;
+        margin: 0 5px;
+        text-align: center;
+        line-height: 60px;
+    } */
+/* 2.利用inline-block */
+    .container{
+        text-align: center;
+        background-color: antiquewhite;
+    }
+    .child-1, .child-2, .child-{
+        display: inline-block;
+        text-align: center;
+        line-height: 60px;
+        width: 100px;
+        height: 60px;
+        background-color: pink;
+        margin: 0 5px; 
+    }
+</style>
+</head>
+<body>
+<div class="container">
+    <div class="child-1">child-1</div>
+    <div class="child-2">child-2</div>
+    <div class="child-2">child-2</div>  
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</body>
+</html>
