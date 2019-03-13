@@ -49,15 +49,14 @@
 ### 6.`<color>`
    * 此类型表单,可让用户通过颜色选择器选择一个颜色值,并反馈到value中。`<input type="color" value="#ff0000" >`
 ### 7.`<date>\<time>\<datetime><datetime-local>\<month>\<week>`
-    ```
-     <input type="date" >
+  ```
+  <input type="date" >
      <input type="time" >
      <input type="datetime" >
      <input type="datetime-local" >
      <input type="month" >
      <input type="week" >
-
-    ```
+  ```
 ### 8.`<search>`
    * 输入的将是一个搜索关键字
 ### 9.`<required>`
@@ -82,7 +81,7 @@
 ### 14.`<autocomplete>`
    * 为表单提供自动完成功能.如果该属性为打开状态可很好地自动完成.一般来说,此属性必须启动浏览器的自动完成功能.`<input type="text" autocomplete="on" >`
 ### 15.`<keygen>`
-    * 规定用于表单的密钥对生成器字段。当提交表单时，私钥存储在本地，公钥发送到服务器。所有主流浏览器都支持 `keygen` 标签，除了 `Internet Explorer` 和 `Safari`
+   * 规定用于表单的密钥对生成器字段。当提交表单时，私钥存储在本地，公钥发送到服务器。所有主流浏览器都支持 `keygen` 标签，除了 `Internet Explorer` 和 `Safari`
 ### 16.`<datalist>`
    * 定义选项列表。
    * 与 `input` 元素配合使用该元素，来定义 `input` 可能的值
