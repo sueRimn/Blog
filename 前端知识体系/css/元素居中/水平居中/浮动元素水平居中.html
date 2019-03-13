@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="style.css">
+<title>浮动元素水平居中</title>
+<style lang="">
+/* 1.对于定宽的浮动元素，通过子元素设置relative + 负margin */
+    /* .child{
+        position: relative;
+        float: left;
+        left: 50%;
+        text-align: center;
+        width: 200px;
+        background-color: pink;
+        margin-left: -100px;
+    } */
+/* 2. 不定宽的浮动元素，通过父子容器都相对定位*/
+    /* .parent{
+        position: relative;
+        float: left;
+        left: 50%;
+    }
+    .child{
+        position: relative;
+        float: left;
+        right: 50%;
+        background-color: pink;
+    } */
+/* 3.通用办法flex布局(不管是定宽还是不定宽)
+利用弹性布局(flex)的justify-content属性，实现水平居中 */
+    .parent{
+        display: flex;
+        justify-content: center;
+    }
+</style>
+</head>
+<body>
+    <div class="parent">
+        <span class="child">我是要居中的浮动元素</span>
+    </div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</body>
+</html>

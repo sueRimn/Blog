@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="style.css">
+<title>水平垂直居中</title>
+<style lang="">
+/* 1.绝对定位与负边距（已知高度宽度） */
+    /* #container{
+        position: relative;
+        background-color: antiquewhite;
+    }
+    .child{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin: -50% 0 0 -50%;
+        width: 100px;
+        height: 100px;
+        background-color: pink;
+    } */
+/* 2.绝对定位与margin:auto（已知高度宽度） */
+    /* #container{
+        position: relative;
+        height: 100px;
+        background-color: antiquewhite;
+    }
+    .child{
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        margin: 0 auto;
+        width: 100px;
+        height: 50px;
+        background-color: pink;
+    } */
+/* 3.绝对定位+CSS3(未知元素的高宽) */
+    /* #container{
+        position: relative;
+        background-color: antiquewhite;
+    }
+    .child{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 100px;
+        height: 50px;
+        background-color: pink;
+    } */
+/* 4.flex布局 */
+    /* #container{
+        height: 100px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: antiquewhite;
+    }
+    .child{
+        width: 100px;
+        height: 50px;
+        background-color: pink;
+    } */
+/* 5. flex/grid与margin:auto(最简单写法)*/
+    #container{
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .child{
+        width: 100px;
+        height: 50px;
+        background-color: pink;
+    }
+</style>
+</head>
+<body>
+<div id="container">
+    <div class="child"></div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</body>
+</html>

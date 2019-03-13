@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="style.css">
+<title>绝对元素的水平居中</title>
+<style lang="">
+    .parent{
+        position: relative;
+    }
+    .child{
+        position: absolute;
+        text-align: center;
+        line-height: 50px;
+        width: 50px;
+        height: 50px;
+        background-color: pink;
+        margin: 0 auto;
+        left: 0;
+        right: 0;
+    }
+</style>
+</head>
+<body>
+    <div class="parent">
+        <div class="child">child</div>
+    </div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</body>
+</html>

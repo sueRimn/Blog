@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="style.css">
+<title>固定高度的块级元素垂直居中</title>
+<style lang="">
+/* 1.使用absolute+负margin(已知高度宽度);通过绝对定位元素距离顶部50%，并设置margin-top向上偏移元素高度的一半，就可以实现了 */
+    /* .parent{
+        position: relative;
+        background-color: antiquewhite;
+    }
+    .child{
+        position: absolute;
+        top: 50%;
+        height: 100px;
+        color: #333;
+        background-color: pink;
+        margin-top: -50px;
+    } */
+/* 2.使用absolute+transform:当垂直居中的元素的高度和宽度未知时，可以借助CSS3中的transform属性向Y轴反向偏移50%的方法实现垂直居中。但是部分浏览器存在兼容性的问题。 */
+    /* .parent{
+        position: relative;
+    }
+    .child{
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+    } */
+/* 3.使用flex+align-items:通过设置flex布局中的属性align-items，使子元素垂直居中 */
+    /* .prent{
+        display: flex;
+        align-items: center;
+    } */
+/* 4.使用table-cell+vertical-align:通过将父元素转化为一个表格单元格显示（类似 <td> 和 <th>），再通过设置 vertical-align属性，使表格单元格内容垂直居中。 */
+    .parent{
+        display: table-cell;
+        vertical-align: middle;
+    }
+</style>
+</head>
+<body>
+<div class="parent">
+    <div class="child">块级元素垂直居中</div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="style.css">
+<title>块级元素的水平居中</title>
+<style lang="">
+    
+/* 1.将该块级元素左右外边距margin-left和margin-right设置为auto */
+    /* .parent{
+        background-color: antiquewhite;
+        text-align: center;
+    } */
+    /* 要设置其宽度 */
+    /* .child{
+        width: 100px;
+        background-color: pink;
+        margin: 0 auto;
+    } */
+
+/* 2.使用table+margin实现 */
+    /* .parent{
+        background-color: antiquewhite;
+        text-align: center;
+    } */
+    /* 宽度为内容宽 */
+    /* .child{
+        display: table;
+        margin: 0 auto;
+        background-color: pink;
+    } */
+/* 3.使用absolute+transform */
+/* 先将父元素设置为相对定位，再将子元素设置为绝对定位 */
+    /* .parent{
+        position: relative;
+    }
+    .child{
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        background-color: pink;
+    } */
+/* 4.使用flex+justify-content*/
+    /* .parent{
+        display: flex;
+        justify-content: center;
+    } */
+/* 5.使用flex+margin */
+    .parent{
+        display: flex;
+    }
+    .child{
+        margin: 0 auto;
+    }
+</style>
+</head>
+<body>
+<div class="parent">
+    <div class="child">child</div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</body>
+</html>

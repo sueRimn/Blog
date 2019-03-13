@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="style.css">
+<title>多行内联元素垂直居中</title>
+<style lang="">
+/* 1.利用flex布局（flex）：利用flex布局实现垂直居中，其中flex-direction: column定义主轴方向为纵向 */
+    /* .parent{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        height: 140px;
+        border: 1px solid pink;
+    } */
+/* 2.利用表布局（table）:利用表布局的vertical-align: middle可以实现子元素的垂直居中 */
+    .parent{
+        display: table;
+        height: 140px;
+        border: 1px solid pink;
+    }
+    .child{
+        display: table-cell;
+        vertical-align: middle;
+    }
+</style>
+</head>
+<body>
+<div class="parent">
+    <p class="child">
+        Lorem ipsum dolor sit, 
+        amet consectetur adipisicing elit. 
+        Consequatur deleniti perferendis non. 
+        Doloremque iste placeat eveniet tempora aliquam unde? 
+        Eaque assumenda odio ipsum dolore, 
+        soluta possimus explicabo maiores minus ex!
+    </p>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</body>
+</html>
