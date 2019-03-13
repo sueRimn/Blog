@@ -112,4 +112,61 @@
    * `width`：设置宽度
    * `height`：设置高度
    * `API`：
+   
+   方法 / 属性 | 使用方法 | 描述
+   ------ | ------ | ------
+getContext() | var canvas = document.getElementById("canvas"); var ctx = canvas.getContext("2d"); |  获取绘制环境返回一个用于在画布上绘图的环境。
+save() | ctx.save(); | 保存路径
+restore() | ctx.restore(); | 恢复路径
+scale() |ctx.scale(x, y);  //x轴缩放比例|y轴缩放比例 | 缩放
+rotate() | ctx.rotage(radian); //radian 弧度=角度*Math.PI/180 | 旋转角度
+translate() | ctx.translate(x, y);  //x轴的位移|Y轴的位移 | 偏移
+transform() |ctx.transform(a, b, c, d, e, f);   变换
+setTransform() |ctx.setTransform(a, b, c, d, e, f); |设置变换
+globalAlpha |ctx.globalAlpha = 0.8; |透明度
+globalCompositeOperation |ctx.globalCompositeOperation = ""; |转透明度
+fillStyle |ctx.fillStyle = "#ff0000"; | 设置绘图的背景颜色
+strokeStyle |ctx.strokeStyle = "blue"; |在绘制的图形上添加边框颜色
+addColorStop() |ctx.addColorStop(offset, color） //offset | 在绘制的图形上添加边框颜色
+createLinearGradient()|ctx.createLinearGradient(x,y,w,h); //x轴位置|y轴位置|渐变宽度|渐变高度  |颜色和边框创建一个渐变
+createRadialGradient() |ctx. createRadialGradient(x0, y0, r0, x1, y1, r1); // 颜色和边框 |在绘制的图形上添加边框颜色
+createPattern() |ctx.createPattern(img, repeatition); //img 图片对象 //repeatition |在绘制的图形上添加边框颜色
+lineWidth |ctx.lineWidth = 10; |边界 设置绘制的图形边框
+lineJoin |ctx.lineJoin = "round"; //3种格式miter|round|bevel //默认|圆角|斜角 |设置绘制的图形的辩解样式
+lineCap |ctx.lineCap = "round"; //3种格式 butt|round|square //默认|圆角|高度多出线宽的一半 |设置绘制的图形的辩解样式
+miterLimit |ctx.miterLimit = "";  |边框斜切限制
+shadowColor |ctx.shadowColor = "red";  |投影颜色
+shadowOffsetX |ctx.shadowOffsetX = 10;  |投影的水平位移
+shadowOffsetY |ctx.shadowOffsetY = 10;  | 投影的垂直位移
+shadowBlur |ctx.shadowBlur = 10;  |投影的模糊大小
+fillRect() |ctx.fillRect(x,y,w,h); | 在画布上填充黑色背景（矩形）
+strokeRect() |ctx.strokeRect(x,y,w,h); |在画布上绘制一个带边框的矩形
+clearRect() |ctx.clearRect(x,y,w,h); |绘制矩形清除指定范围内的内容
+beginPath() |function draw(){ beginPath();//.... closePath(); } |绘制路径开始绘制一个新的路径，避免与后面绘制的路径重叠
+closePath() |代码同上 |绘制路径关闭路径，如果不设置最后一个点，则默认以第一个点结束。
+moveTo() |ctx.moveTo(120, 120); //x, y |绘制路径移动到绘制的新目标点，设置一个新的点
+lineTo() |ctx.lineTo(220, 320); //x, y |绘制路径新的目标点
+quadraticCurveTo() |ctx.quadraticCurveTo (cpx, cpy, x, y); //贝赛尔曲线 |控制点|坐标点 |绘制路径新的目标点
+bezierCurveTo() |ctx. bezierCurveTo (cp1x, cp1y, cp2x, cp2y, x, y); //贝赛尔曲线 |控制点|控制点|坐标点 |绘制路径新的目标点
+arc()|ctx.arc(x, y, r, s, e, d);  //x,y,半径,起始弧度,结束弧度,旋转方向//旋转方向:false[顺时针],true[逆时针] |绘制路径画一个圆
+arcTo() |ctx.arc(x1, y1, x2, y2, r);  //第一组坐标|第二组坐标|半径 |绘制路径画一个圆
+rect() |ctx.rect(); //x,y,w,h |绘制路径绘制一个矩形
+fill() |ctx.fill();//填充，默认黑色 |绘制路径 |把lineTO()设置的点区域用默认颜色填充成一个图形
+stroke() |ctx.stroke();//画线，默认黑色 |绘制路径把lineTO()设置的点连接起来
+clip() |ctx.clip();// |绘制路径
+isPointInPath() |ctx.isPointInPath();// |绘制路径
+drawFocusRing() |ctx.drawFocusRing (ele, canDrawCustom);// |集中管理
+setCaretSelectionRect() |ctx.setCaretSelectionRect (ele, x, y, w, h); // |插入符和选择器管理
+caretBlinkRate() |ctx.caretBlinkRate() // |插入符和选择器管理
+font |ctx.font="" // 文本设置字体类型
+textAlign = "" |ctx.textAlign = "" //start, end, left, right, center //def:start |文本对齐方式
+textBaseline |ctx.textBaseline="" //def:alphabetic |文本
+fillText() |ctx.fillText (text, x, y[, maxWidth ])  |设置填充的文本
+strokeText() |ctx.strokeText (text, x, y[, maxWidth ])  |文本
+measureText() |var metrics  = ctx.measureText(text);metrics . width  |文本
+drawImage() |drawImage(image,dx,dy) drawImage(image,dx,dy,dw,dh) drawImage(image,sx,sy,sw,sh, dx,dy,dw,dh) // |图片操作在画布上载入一张图片
+createImageData() |createImageData(sw,sh)  |图片操作
+createImageData() |createImageData(imageData)  |图片操作
+getImageData() |var imageData = createImageData(sx,sy,sw,sh) imageData.width imageData.height imageData.data  |图片操作
+putImageData() |putImageData(imageData,dx,dy[, dirtyX,dirtyY,dirtyWidth, dirtyHeight])  |图片操作
         
