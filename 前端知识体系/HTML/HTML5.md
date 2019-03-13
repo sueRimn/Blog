@@ -35,6 +35,7 @@
    * 定义 `figure` 元素的标题（`caption`）。"`figcaption`" 元素应该被置于 "`figure`" 元素的第一个或最后一个子元素的位置。
 ### 12.`<contextmenu>`
    * 添加到系统右键菜单 [貌似这个功能只有firefox支持]
+##### [回到顶部](#html5)
 ## 表单的改进
 ### 1.`email`
    * 要求输入格式正确的`email`地址,否则浏览器是不允许提交的,并会有一个错误信息提示.此类型在`Opera`中必须指定`name`值,否则无效果.`<input type="email" >`
@@ -105,6 +106,7 @@
 ### 20.`<contenteditable>`
    * 让每个元素里面的文本节点或值变为可编辑
 ## 音频
+##### [回到顶部](#html5)
 ## 画布canvas
 ### 1.兼容性
 > 除IE外所有的浏览器都支持canvas,可以使用[这个](https://github.com/arv/explorercanvas)为IE添加这个新特性
