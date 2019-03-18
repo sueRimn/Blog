@@ -50,4 +50,12 @@ felx-flow: <'felx-direction'>  <'flex-wrap'> | .item{<br>flex-basis: <长度> / 
 **justify-content** | **flex**
 ![](https://css-tricks.com/wp-content/uploads/2018/10/justify-content.svg) | 
 这定义了沿着主轴的对齐。<Br>当一行中的所有`flex item`都是不灵活的，或者都是灵活的，但已经达到最大大小时，它可以帮助分配剩余的额外空闲空间。当项目溢出行时，它还对它们的对齐方式施加一些控制。  | 这是`flex-growth`、`flex-shrink`和`flex-base`组合的简写。<br>第二个和第三个参数(`flex-shrink`和`flex-base`)是可选的。默认值是0 1 auto。
-  .container{<br>justify-content: flex-start / felx-end / center;<br>}<br>**flex-start(默认)**：
+  .container{<br>justify-content: flex-start / felx-end / center / space-around / space-evently;<br>}<br>**flex-start(默认)**：`item`向行的开始聚集**flex-end**：`item`往行尾聚集<br>**center**：`item`在行内居中<br>**space-between**：`item`在行内均匀分布，第一个在行首，最后一个在行尾<br>**space-around**：`item`在行内均匀分布，周围空间相等，在视觉上并不是相等的<br>**space-evently**：`item`是均匀分布的，任何两个`item`之间的间距(以及边缘的空间)是相等的 | .item{<br>flex: none | [ <'flex-grow'> <'flex-shrink'>? || <'flex-basis'> ]<br>}<br>建议您使用这个简写属性，而不是设置各个属性。简单地设置其他值。
+  **align-items** | **flex-atart**
+ ![](https://css-tricks.com/wp-content/uploads/2018/10/align-items.svg) | ![](https://css-tricks.com/wp-content/uploads/2018/10/align-self.svg)
+ 这定义了`flex item`如何沿着当前行上的交叉轴的默认行为。<br>可以将其视为交叉轴(垂直于主轴)的`justify-content`版本。   | 这允许为单个`flex`项重写默认对齐(或由`align-items`指定的对齐)<br>
+ .container{<br>align-items: stretch / flex-start / flex-end / center / baseline;<br>}<br>**stretch(默认)**：拉伸填充容器(仍然考虑最小宽度/最大宽度)<br>**flex-start**：`item`以`cross-start`边为边对齐<br> **flex-end**：`item`以`cross-end`线为边对齐<br>**center**：`item`在`cross-axis`居中<br>**baseline**：`item`沿它们的基线对齐| .item{<br> align-self: auto / flex-start /flex-end / center / baseline / stretch;<br>}<br>**注意**：`float`、`clear`、`vertical`对一个`flex item`没有影响
+  **align-content**| 
+  ![](https://css-tricks.com/wp-content/uploads/2018/10/align-content.svg) | 
+  当交叉轴中有额外的空间时，这将使`flex`容器的行对齐，类似于调整内容在主轴中对齐单个条目的方式<br>**注意**：
+.container{<br>aligbn-content: flex-start / flex-end / center / space-between / space-around / stretch;<br>}<br>**flex-satrt**：行包装到容器顶部<br>**flex-end**：行包装到容器底部<br>**center**：行在容器中<br>**sapce-between**：行均匀分布，第一行在容器顶部，最后一行在容器底部<br>**strecth(默认)**：行拉伸填充容器剩余空间
