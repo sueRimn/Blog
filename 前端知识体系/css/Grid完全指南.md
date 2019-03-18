@@ -1,4 +1,4 @@
-# Grid完全指南
+# [Grid完全指南](https://css-tricks.com/snippets/css/complete-guide-grid/#prop-display)
 > `CSS`网格布局是`CSS`中最强大的布局系统。它是一个二维系统，这意味着它可以处理列和行，而`flexbox`基本上是一个一维系统。通过将CSS规则应用于父元素(成为网格容器)和子元素(成为网格项)，可以使用网格布局。
 ## 介绍
 `CSS`网格布局(又名“Gird”)是一个基于网格的二维布局系统，它的目标是彻底改变我们设计基于网格的用户界面的方式。`CSS`一直被用来布局我们的网页，但它从来没有做得很好。首先，我们使用了表，然后是浮点数、定位和内联块，但是所有这些方法本质上都是修改过的，并且遗漏了很多重要的功能(例如垂直居中)。`Flexbox`帮助解决了这个问题，但它的目标是更简单的一维布局，而不是复杂的二维布局(`Flexbox`和`Grid`际上可以很好地协同工作)。`Grid`是第一个专门为解决布局问题而创建的`CSS`模块。
@@ -46,4 +46,9 @@ Grid容器属性 | Grid项属性
 ----- | ------
 **display** | **grid-column-start**<br>**grid-column-end**<br>**grid-row-satrt**<br>**grid-row-end**
 将元素定义为网格容器，并为其内容建立新的网格格式化上下文。 | 通过引用特定网格线确定网格项在网格中的位置。`grid-column-start`/`grid-row-start`是项开始的行，而`grid-column-end`/`grid-row-end`是项结束的行。
-.container{<br>display:grid / inline-grid;<br>}<br>**grid**：生成块级网格<br>**inline-grid**：生成行内网格 |  .item{<br>grid-column-start:<数值> / <名字> / span<数值> / span<名字> / auto<br>grid-column-end:<数值> / <名字> / span<数值> / span<名字> / auto<br>grid-row-start:<number> / <name> / span <number> / span <name> / auto<br>grid-row-end: <number> / <name> / span <number> / span <name> / auto
+.container{<br>display:grid / inline-grid;<br>}<br>**grid**：生成块级网格<br>**inline-grid**：生成行内网格 |  .item{<br>grid-column-start:<数值> / <名字> / span<数值> / span<名字> / auto<br>grid-column-end:<number> / <name> / span<number> / span<name> / auto<br>grid-row-start:<number> / <name> / span <number> / span <name> / auto<br>grid-row-end: <number> / <name> / span <number> / span <name> / auto<br>**<line>**：可以是一个编号网格线的数字，或者是一个名称网格线的名称<br>**span <number>**：项将跨越所提供的网格轨道数<br>**span <name>**：该项将跨越，直到它到达具有所提供名称的下一行为止<br>**auto**：指示自动放置,自动跨度,或默认跨度
+ **grid-template-columns**<br>**grid-template-rows** | **grid-column**<br>**grid-row**
+ 用空格分隔的值列表定义网格的列和行。这些值表示轨道大小，它们之间的空间表示网格线。| 分别是`grid-column-start` + `grid-column-end`和`grid-row-start` + `grid-row-end`的简写
+  .container{<br>grid-template-columns:grid-template-columns: <track-size> ... / <line-name> <track-size> ...;<br>grid-template-rows: <track-size> ... / <line-name> <track-size> ...;<br>}<br>**<track-size>**：是网格中自由空间的长度、百分比或分数(使用`fr`单位)<br>**<line-name>**：你随意选择的名称 | .item{<br>grid-column:<start-line> / <end-line> / <start-line> / span <value>;<br>grid-row:<start-line> / <end-line> / <start-line> / span <value><br>**<start-line>**/**<end-line>**：每一个都接受与`longhand版本相同的所有值，包括`span`
+  **grid-tenplate-areas** | **grid-area**
+ 通过引用使用网格区域属性指定的网格区域的名称来定义网格模板。重复网格区域的名称会导致内容跨越这些单元格。句点表示空单元格。语法本身提供了网格结构的可视化 | 为项指定名称，以便可以由使用`grid-template-areas`属性创建的模板引用它。或者，可以将此属性用作更短的缩写，表示`grid-row-start `+ `grid-column-start` + `grid-row-end` + `grid-column-end`
