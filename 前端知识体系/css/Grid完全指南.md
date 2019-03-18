@@ -44,5 +44,6 @@ Chrome:57<br>Opera:44<br>Firefox:52<br>Edge:16<br>Safari:10.1 | ios Safari:10.3<
 ## Grid属性内容表
 Grid容器属性 | Grid项属性
 ----- | ------
-**display** | **grid-column-start**
-将元素定义为网格容器，并为其内容建立新的网格格式化上下文。
+**display** | **grid-column-start**<br>**grid-column-end**<br>**grid-row-satrt**<br>**grid-row-end**
+将元素定义为网格容器，并为其内容建立新的网格格式化上下文。 | 通过引用特定网格线确定网格项在网格中的位置。`grid-column-start`/`grid-row-start`是项开始的行，而`grid-column-end`/`grid-row-end`是项结束的行。
+.container{<br>display:grid / inline-grid;<br>}<br>**grid**：生成块级网格<br>**inline-grid**：生成行内网格 |  .item{<br>grid-column-start:<数值> / <名字> / span<数值> / span<名字> / auto<br>grid-column-end:<数值> / <名字> / span<数值> / span<名字> / auto<br>grid-row-start:<number> / <name> / span <number> / span <name> / auto<br>grid-row-end: <number> / <name> / span <number> / span <name> / auto
