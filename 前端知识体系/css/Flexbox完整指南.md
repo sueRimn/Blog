@@ -59,3 +59,60 @@ felx-flow: <'felx-direction'>  <'flex-wrap'> | .item{<br>flex-basis: <长度> / 
   ![](https://css-tricks.com/wp-content/uploads/2018/10/align-content.svg) | 
   当交叉轴中有额外的空间时，这将使`flex`容器的行对齐，类似于调整内容在主轴中对齐单个条目的方式<br>**注意**：
 .container{<br>aligbn-content: flex-start / flex-end / center / space-between / space-around / stretch;<br>}<br>**flex-satrt**：行包装到容器顶部<br>**flex-end**：行包装到容器底部<br>**center**：行在容器中<br>**sapce-between**：行均匀分布，第一行在容器顶部，最后一行在容器底部<br>**strecth(默认)**：行拉伸填充容器剩余空间
+  
+ ## 例子
+ #### 居中
+ 以一个很简单的例子解决一个常见的问题：**居中显示**
+ 
+```
+.parent{
+  dispaly:flex;
+  height:300px;
+}
+.child{
+  width:100px;
+  height:100px;
+  margin:auto;
+  }
+```
+这取决于在`flex`容器中设置`margin`为`auto`的空白会吸收额外的空间。因此，设置`auto`的垂直边距将使项目完美地位于两个轴的中心。
+#### 自适应
+现在让我们使用更多的属性。考虑一个包含6个项的列表，它们都具有固定的尺寸，但是它们可以**自动调整大小**。我们希望它们**均匀地分布在水平轴上**，以便在调整浏览器大小时一切正常(没有媒体查询!)。
+```
+.flex-container{
+  dispaly:flex;
+  flex-flow:row wrap;
+  justify-content:space-around;
+}
+
+```
+#### 响应式
+我们再试试其他的，假如我们有靠右对齐的导航栏，我们希望它们在中等尺寸屏幕中居中以及在小屏幕中单列显示。
+```
+.navigation{
+  display:flex;
+  flex-flow:row wrap;
+  justify-content:flex-end;//交叉轴的右边显示
+}
+//中等屏幕
+@media all and (max-width:800px){
+  .navigation{
+    justify-content:space-around;
+  }
+}
+//小屏幕
+@media all and (max-width:500px){
+  .navigation{
+    flex-direction: column;
+   }
+}
+```
+## 其他资源
+[Flexbox in the CSS specifications](https://www.w3.org/TR/css-flexbox-1/)
+
+[Flexbox at MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Basic_Concepts_of_Flexbox)
+
+## 浏览器支持
+Chrome | Safari | Firefox | Opera | IE | Edge | Android | IOS
+------ | ------ | ------ | ------ | ------ | ------ | ------ | ------ 
+20-（old）<br>21+ (new) | 3.1+ (old)<br>6.1+ (new) | 2-21 (old)<br>22+ (new) | 12.1 (new) | 10 (tweener)<br>11+ (new) | 17+ (new) | 2.1 +(old)<br>4.4 (new) | 3.2 (old)<br>7.1 (new)
