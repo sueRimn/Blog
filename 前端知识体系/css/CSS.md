@@ -146,8 +146,23 @@ height = height(包含padding-top + padding-bottom + border-top + border-bottom)
 给父元素设置`overflow:hidden`实现简单的BFC清除浮动，但是这样元素阴影和下拉菜单会被截断。
 ## css居中布局
 [水平居中+垂直居中+水平垂直居中](https://github.com/sueRimn/Blog/tree/master/%E5%89%8D%E7%AB%AF%E7%9F%A5%E8%AF%86%E4%BD%93%E7%B3%BB/css/%E5%85%83%E7%B4%A0%E5%B1%85%E4%B8%AD)
-## CSS 动画
-
+## CSS3的过渡、变换和动画
+* `transition`:过渡
+ * `transition-property`：过渡属性
+ * `transition-duration`：过渡持续时间，单位为`s`
+ * `transition-delay`：延迟时间
+ * `transition-timing-function`：过渡类型 `ease` | `liner` | `ease-in` | `ease-out` | `ease-in-out` | `cubic-bezier`
+* `transform`：变换
+ * `skew`：倾斜
+ * `scale`：缩放
+ * `rotate`：旋转
+ * `translate`：平移
+* `animation`：动画
+ * `animation-name`：动画名称
+ * `animation-duration`：动画持续时间
+ * `animation-iteration-count`：动画重复次数
+ * `animation-direction`：动画执行完一次后方向的变化方式
+ * `animation-timing-function`：变化的模式
 ## link和@import的区别
  区别  |  link | @import
 --- | ---  | ------
