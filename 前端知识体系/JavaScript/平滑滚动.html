@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="style.css">
+<title>平滑滚动</title>
+<style lang="">
+    body{
+        background-color: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+    }
+    nav{
+        background-color: pink;
+        display: block;
+        padding: 1em 0;
+        text-align: center;
+        width: 100%;
+    }
+    nav a{
+        color: #fff;
+        margin: 0 1em;
+        text-decoration: none;
+    }
+    .scrolling-box{
+        background-color: #eee;
+        display: block;
+        height: 200px;
+        overflow-y: scroll;
+        scroll-behavior: smooth;
+        text-align: center;
+        width: 100%;
+
+    }
+    section{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+    }
+</style>
+</head>
+<body>
+    <nav>
+        <a href="#1">火锅</a>
+        <a href="#2">串串</a>
+        <a href="#3">棒棒鸡</a>
+    </nav>
+    <div class="scrolling-box">
+        <section id="1">这是火锅</section>
+        <section id="2">这是串串</section>
+        <section id="3">这是棒棒鸡</section>
+    </div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</body>
+</html>

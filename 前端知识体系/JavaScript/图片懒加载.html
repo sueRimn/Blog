@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style lang="">
+        *{
+            margin: 0;
+            padding: 0;
+
+        }
+        body{
+            overflow-x: hidden;
+        }
+        .zone img{
+            margin: 800px 0;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div id="page-wrpa">
+        <h2>向下拉</h2>
+        <div class="zone">
+            <img src="" class="lazy" data-src="./images/1.jpg" width="240" height="152" alt="">
+            <img src="" class="lazy" data-src="./images/2.jpg" width="240" height="152" alt="">
+            <img src="" class="lazy" data-src="./images/3.jpg" width="240" height="152" alt="">
+        </div>
+    </div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+        !function(window) {
+            let $q = (q, res) => {
+                if (document.querySelectorAll) {
+                    res = document.querySelectorAll(q);
+                }else{
+                    let d = document
+                    , a = d.styleSheets[0] || d.creteStyleSheet();
+                    a.addRule(q,'f:b');
+                    for (let l = d.all, b = 0,c = [],f = l.length;b < f; b++)
+                    l[b].currentStyle.f && c.push(l[b]);
+
+                    a.removeRule(0);
+                    res = c;
+                }
+                return res;
+            }
+            , addEventListener = (evt, fn) => {
+                window.addEventListener(evt, fn, false)
+                ? this.addEventListener
+                : (window.attachEvent)
+                  ? this.attachEvent('on' + evt, fn)
+                  : this['on' + evt] = fn;
+            }
+            , _has = (obj, key) => {
+                return Obeject.prototype.hasOwnProperty.call(obj, key);
+            };
+            let loadImage = (el, fn) => {
+                let img = new Image()
+                , src = el.getAttribute('data-src');
+                img.onload = () => {
+                    if (!! el.parent)
+                    el.parent.replaceChild(img, el)
+                    else
+                    el.src = src;
+                    fn ? fn() : null;
+                }
+                img.src = src;
+            }
+            let elementInViewport = el => {
+                let rect = el.getBoundingClientRect();
+                return (
+                    rect.top >= 0 && rect.left >= 0&&rect.top <=(window.innerHeight || document.documentElement.clientHeight)
+                )
+            }
+            let images = new Array()
+            , query = $q('img.lazy')
+            , processScroll  = () => {
+                for (let i = 0;i< images.length;i++){
+                    if(elementInViewport(images[i])){
+                        loadImage(images[i], () => {
+                            images.splice(i, i);
+                        });
+                    }
+                };
+            };
+            for (let i = 0;i< query.length;i++){
+                images.push(query[i]);
+            };
+            processScroll();
+            addEventListener('scroll', processScroll);
+        }(this);
+    </script>
+</body>
+</html>
