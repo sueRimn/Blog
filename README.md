@@ -13,25 +13,11 @@ E-mail | 掘金 | 博客园
     * [CSS](./前端知识体系/css)
       * [基础知识](./前端知识体系/css/css基础.md)
       * [进阶](./前端知识体系/css/css3.md)
-      * 布局
-        * 页面快速布局 
-        * 移动端布局 
-        * 自适应 响应 
-        * 三维立体 
-        * 3D坐标系构建和动画 
-        * SVG  
-     * css Hack 
      * css预处理
         * less 
         * sass
      * JavaScript Web API
-         * 基础知识
-            * 数据类型
-            * 变量
-            * 表达式与运算符
-            * 控制语句
-            * 函数
-            * 异常处理
+       * 基础知识
        * DOM操作
        * BOM操作
        * 原型与原型链
@@ -48,11 +34,9 @@ E-mail | 掘金 | 博客园
        * 浏览器兼容性处理
        * SEO网站优化
        * 前端框架  
-         * NodeJs
          * VUE
          * Angular
-         * React 
-         * ZeptoJS 
+         * React  
        * 移动开发
          * 微信小程序
        * Chrome调试
@@ -66,7 +50,6 @@ E-mail | 掘金 | 博客园
          * 跨域处理
 2. [代码版本管理]()
     * Git与Github 
-    * GitHub markdown语法
 3. 算法
 4. 数据结构
 5. 面向对象
