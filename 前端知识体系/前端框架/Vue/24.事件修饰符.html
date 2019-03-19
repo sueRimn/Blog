@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="src/vue.js"></script>
+    <style>
+    </style>
+</head>
+<body>
+    <div id="app">
+        <button @mouse.right="rignt" @mouse.middle="middle" @mouse.left="left">{{msg}}</button>
+    </div>
+        
+    <script>
+        let vm = new Vue({
+            el:'#app',
+            data:{
+                msg:"分别使用鼠标的左中右键点击，会有不同的效果"
+            },
+            methods: {
+                left(){
+                    this.msg = 'left';
+                },
+                middle(){
+                    this.msg = 'middle';
+                },
+                right(){
+                    this.msg = 'right';
+                }
+            },
+        })
+    </script>
+</body>
+</html>

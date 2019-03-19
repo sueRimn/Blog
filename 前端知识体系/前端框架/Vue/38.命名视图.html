@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="src/animate.css">
+    <script src="src/vue.js"></script>
+    <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
+
+</div>
+
+    <style>
+        .router-link-active {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <div id="app" class="demo">
+       <h1>Hello App!</h1>
+       <p>
+           <!-- 通过router-link导航 -->
+           <!-- 通过传入'to '属性指定链接-->
+           <!--  <router-link> 默认会被渲染成一个 `<a>` 标签-->
+            <h1>Named Routes</h1>
+            <p>Current route name: {{ $route.name }}</p>
+            <router-link to="/" exact>index</router-link>
+            <router-link :to="{ name: 'foo' }">Go to Foo</router-link>
+            <router-link :to="{ name: 'bar' }">Go to Bar</router-link>
+       </p>
+       <!-- 路由出口 -->
+       <!-- 路由匹配到的组件将渲染在这里 -->
+       <!-- 如果 router-view 没有设置名字，那么默认为 default -->
+       <router-view></router-view>
+       <router-view name="side"></router-view>
+    </div>
+    <!-- 
+        0. 如果使用模块化机制编程，导入Vue和VueRouter，要调用 Vue.use(VueRouter)
+        1. 定义 (路由) 组件。
+        2.定义路由
+     -->
+    <script>
+        //1. 定义 (路由) 组件。
+        const Home = { template: '<div>home</div>' }
+        const Foo = { template: '<div>Foo</div>'}
+        const MainBar = { template: '<div>mainBar</div>' }
+        const SideBar = { template: '<div>sideBar</div>' }
+
+        //2.定义路由
+        //每个路由应该映射一个组件。其中component可以是通过Vue.extend()创建的组件构造器
+        //或者只是一个组件配置对象
+        //3.创建router实例，然后传‘routes’配置
+        //要在嵌套的出口中渲染组件，需要在 VueRouter 的参数中使用 children 配置：
+        const router = new VueRouter({
+            routes:[
+                {path:'/',name:'home',component:Home},
+                {path:'/foo',name:'foo',component:Foo},
+                {path:'/bar',name:'bar',components:{
+                    default:MainBar,
+                    side:SideBar
+                }}
+            ]
+        });
+
+        //4.创建和挂载根实例
+        //要记得通过router配置参数注入路由，从而让整个应用都有路由功能
+        
+        const app = new Vue({router}).$mount('#app');
+    </script>
+</body>
+</html>

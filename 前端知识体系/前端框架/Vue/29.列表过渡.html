@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="src/animate.css">
+    <script src="src/vue.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/velocity/1.2.3/velocity.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.14.1/lodash.min.js"></script>
+
+</div>
+
+    <style>
+        /* .list-item{
+            display: inline-block;
+            margin-right: 10px;
+        }
+        .list-move,.list-enter-active,.list-leave-active{
+            transition: all 1s;
+        }
+        .list-leave-active{position:absolute;}
+        .list-enter,.list-leave-to{
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .list-move{transition: transform 1s;} */
+        .container{
+            display: flex;
+            flex-wrap: wrap;
+            width: 238px;
+            margin-top: 10px;
+        }
+        .cell{
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            width: 25px;
+            height: 25px;
+            border: 1px solid #aaa;
+            margin-right: -1px;
+            margin-bottom: -1px;
+        }
+        .cell:nth-child(3n){
+            margin-right: 0;
+        }
+        .cell:nth-child(27n){
+            margin-bottom: 0;
+        }
+        .cell-move{
+            transition: transform 1s;
+        }
+
+        /* 交错过渡 */
+        .list-move,.list-enter-active,.list-leave-active{transition: 1s;}
+        .list-leave-active{position: absolute;}
+        .list-enter,.list-leave-to{opacity: 0;height: 0;}
+    </style>
+</head>
+<body>
+    <div id="app" class="demo">
+        <!-- <transition-group name="list" tag="p">
+
+        </transition-group> -->
+        <!-- 普通过渡 -->
+        <!-- <button @click="add">add</button>
+        <button @click="remove">remove</button>
+        <transition-group name="list" tag="p">
+            <span v-for="item in items" :key="item" class="list-item">{{item}}</span>
+        </transition-group> -->
+
+        <!-- 平滑过渡 -->
+        <!-- <button @click="add">add</button>
+        <button @click="remove">remove</button>
+        <transition-group name="list" tag="p">
+            <span v-for="item in items" :key="item" class="list-item">{{item}}</span>
+        </transition-group> -->
+
+        <!-- 变换过渡 列表的排序过渡  平滑过渡-->
+        <!-- <button @click="shuffle">shuffle</button>
+        <button @click="add">add</button>
+        <button @click="remove">remove</button>
+        <transition-group name="list" tag="p">
+                <span v-for="item in items" :key="item" class="list-item">{{item}}</span>
+        </transition-group> -->
+
+            <!-- 多维列表-->
+        <!-- <button @click="shuffle">shuffle</button>
+        <transition-group name="cell" tag="div" class="container">
+            <div v-for="cell in cells" :key="cell.id" class="cell">{{cell.number}}</div>
+        </transition-group> -->
+
+        <!-- 交错过渡 列表查询 -->
+        <input type="text" v-model="query">
+        <transition-group name="list" tag="ul">
+            <li v-for="(item,index) in computedList" :key="item" :data-index="index">{{item}}</li>
+        </transition-group>
+    </div>
+    <!-- 
+       transition-group以一个真实元素呈现：默认一个<span></span>
+       通过tag特性更换为其他元素，而且内部元素总是需要提供唯一的key属性值
+       不仅可以进入和离开动画，还可以改变定位。v-move 特性 对于设置过渡的切换时机和过渡曲线非常有用
+     -->
+    <script>
+        let vm = new Vue({
+            el:'#app',
+            data:{
+                query:'',
+                list:['sue','tao','vue','web']
+                // cells:Array.apply(null,{length:81})
+                // .map(function(_,index){
+                //     return{
+                //         id:index,
+                //         number:index % 9 + 1
+                //     }
+                // })
+            },
+            computed: {
+                computedList(){
+                    return this.list.filter((item)=>{
+                        return item.toLowerCase().indexOf(this.query.toLowerCase()) !== -1;
+                    })
+                }
+            },
+            methods: {
+                shuffle(){
+                    //this.items = this.items.sort(()=>{return Math.random() - 0.5;})
+                    this.cells = _.shuffle(this.cells);
+                },
+                // randomIndex(){
+                //     return Math.floor(Math.random()*this.items.length)
+                // },
+                // add(){
+                //     this.items.splice(this.randomIndex(),0,this.nextNum++);
+                // },
+                // remove(){
+                //     this.items.splice(this.randomIndex(),1);
+                // }
+            },
+        })
+    </script>
+</body>
+</html>

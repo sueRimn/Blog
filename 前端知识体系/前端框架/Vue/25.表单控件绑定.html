@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="src/vue.js"></script>
+    <style>
+    </style>
+</head>
+<body>
+    <div id="app">
+        <input v-model='msg' placeholder="edit me" type="text">
+        <p>Message is:{{msg}}</p>
+    </div>
+        <!-- 
+            v-model本质上是语法糖，负责箭头用户的输入事件及更新数据
+            v-model会忽略所有表单元素的value、checked、selected特性的初始值。
+            因为它会选择Vue实例数据来作为具体的值。应该通过JS组件的data选项中声明初始值
+         -->
+    <script>
+        let vm = new Vue({
+            el:'#app',
+            data:{
+                msg:''
+            }
+        })
+    </script>
+</body>
+</html>

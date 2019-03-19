@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="src/vue.js"></script>
+    <style>
+        .red{color: red;}
+        #app div{
+            -display: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+       
+    </div>
+    <!-- 
+        使用数据的时候 要先对数据进行劫持（代理）
+        使用Object.defineProperty劫持数据，把属性转成访问器的方式
+
+        getter: 获取属性触发的
+        setter：设置属性触发的
+
+        定义属性，也可在原有的属性上描述
+
+     -->
+    <script>
+        let vm = new Vue({
+            el:'#app',
+            data:{
+                
+            },
+            
+        })
+        Object.defineProperty(data,'miaov',{
+            value:'ketang',
+            writable:false//不允许改写
+        })
+    </script>
+</body>
+</html>

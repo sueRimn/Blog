@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="src/animate.css">
+    <script src="src/vue.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/velocity/1.2.3/velocity.min.js"></script>
+    <style>
+        .fade-enter,.fade-leave-to{
+            opacity:0;
+        }
+        .fade-enter-active,.fade-leave-active{
+            transition:opacity 1s;
+        }
+        
+        .bounce-enter-active{
+            animation: bounce-in .5s;
+        }
+        .bounce-leave-active{
+            animation: bounce-in .5s reverse;
+        }
+        @keyframes bounce-in{
+            0%{
+                transform: scale(0);
+            }
+            50%{
+                transform: scale(1.5);
+            }
+            100%{
+                transform: scale(1.0);
+            }
+        }
+        .custom-appear-class{
+            opacity: 0;
+            background-color: pink;
+            transform: translateX(100px)
+        }
+        .custom-appear-active-class{
+            transition: 2s;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <button @click="show =! show">toggle</button>
+        <!-- <transition
+        name="custom-classes-transition"
+        enter-active-class="animated tada"
+        leave-active-class="animated bounceOutRight"
+        > -->
+        <!-- <transition name="fade" type="tansition">
+                
+        </transition> -->
+        <!-- <transition
+        appear
+        appear-class="custom-appear-class"
+        appear-to-class="custom-appear-to-calss"
+        appear-active-class="custom-appear-active-class"
+        >
+            <p v-if="show">hello</p>
+        </transition> -->
+
+        <!-- <transition
+        @before-enter="beforeEnter"
+        @enter="enter"
+        @leave="leave"
+        :css="false"
+        >
+        <p v-if="show">Demo</p>
+        </transition> -->
+
+        <transition name="fade">
+            <component :is="view"></component>
+        </transition>
+    </div>
+    <!-- 
+        <transition
+        @before-enter="beforeEnter"
+        @enter="enter"
+        @after-enter="afterEnter"
+        @enter-cancelled="enterCancelled"
+        @before-leave="beforeLeave"
+        @leave="leave"
+        @after-leave="afterLeave"
+        @leave-cancelled="leaveCancelled"
+        :css="false"
+        >
+        
+        </transition>
+        当只用 JavaScript 过渡的时候，在 enter 和 leave 中必须使用 done 进行回调。否则，它们将被同步调用，过渡会立即完成
+        推荐对于仅使用 JavaScript 过渡的元素添加 v-bind:css="false"，Vue 会跳过 CSS 的检测。
+        初始渲染过渡：appear 特性设置节点的在初始渲染的过渡，自定义JavaScript钩子
+        过渡条件：
+        1.条件渲染：使用v-if
+        2.条件展示：使用v-show
+        3.动态组件：使用js属性实现动态组件
+     -->
+    <script>
+        let vm = new Vue({
+            el:'#app',
+            components:{
+                'home':{template:'<div>hello sue</div>'}
+            },
+            data:{
+                show:true
+            },
+            computed:{
+                view(){
+                    return this.show ? 'home':'';
+                }
+            }
+            // methods: {
+            //     reset(){
+            //         history.go();
+            //     },
+            //     beforeEnter(el){
+            //         el.style.opacity = 0;
+            //         el.style.transforeOrigin = 'left';
+            //     },
+            //     enter(el,done){
+            //         Velocity(el,{opacity:1,fontSize: '1.4em'},{duration:300})
+            //         Velocity(el,{fontSize:'1em'},{complete:done})
+            //     },
+            //     leave(el,done){
+            //         Velocity(el,{translateX:'15px',rotateZ:'50deg'},{duration:600})
+            //         Velocity(el, { rotateZ: '100deg' }, { loop: 2 })
+            //         Velocity(el, {rotateZ: '45deg',translateY: '30px',translateX: '30px',opacity: 0}, {complete: done })
+            //     }
+            // },
+        })
+    </script>
+</body>
+</html>

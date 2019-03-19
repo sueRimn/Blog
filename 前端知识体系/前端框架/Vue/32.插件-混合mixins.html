@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="src/animate.css">
+    <script src="src/vue.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/velocity/1.2.3/velocity.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.14.1/lodash.min.js"></script>
+
+</div>
+
+    <style>
+    </style>
+</head>
+<body>
+    <div id="app" class="demo">
+       
+    </div>
+    <!-- 
+       混合（mixins）是一种分发Vue组件中可复用功能的方式
+       混合对象可以包含任意组件选项
+       以组件使用混合对象时，所有混合对象的选项将被混入该组件本身的选项
+     -->
+    <script>
+        var myMixin = {
+            created() {
+                this.hello()
+            },
+            methods: {
+                hello(){
+                    console.log('hello from mixin!')
+                }
+            },
+        }
+        var Component = Vue.extend({
+            mixins:[myMixin]
+        })
+        var comment = new Component()
+        let vm = new Vue({
+            el:'#app',
+        })
+    </script>
+</body>
+</html>

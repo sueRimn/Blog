@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="src/animate.css">
+    <script src="src/vue.js"></script>
+    
+    <style>
+        .fade-enter,.fade-leave{
+            opacity: 0;
+        }
+        .fade-enter-active,.fade-leave-active{
+            transition: opacity 1s;
+            animation: bounce-in 5s;
+        }
+        
+        .bounce-enter-active{
+            animation: bounce-in .5s;
+        }
+        .bounce-leave-active{
+            animation: bounce-in .5s reverse;
+        }
+        @keyframes bounce-in{
+            0%{
+                transform: scale(0);
+            }
+            50%{
+                transform: scale(1.5);
+            }
+            100%{
+                transform: scale(1.0);
+            }
+        }
+        .custom-appear-class{
+            opacity: 0;
+            background-color: pink;
+            transform: translateX(100px)
+        }
+        .custom-appear-active-class{
+            transition: 2s;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <button @click="show =! show">toggle</button>
+        <button @click="reset">还原</button>
+        <!-- <transition
+        name="custom-classes-transition"
+        enter-active-class="animated tada"
+        leave-active-class="animated bounceOutRight"
+        > -->
+        <!-- <transition name="fade" type="tansition">
+                
+        </transition> -->
+        <transition
+        appear
+        appear-class="custom-appear-class"
+        appear-to-class="custom-appear-to-calss"
+        appear-active-class="custom-appear-active-class"
+        >
+            <p v-if="show">hello</p>
+        </transition>
+    </div>
+    <!-- 
+        初始过渡：appear 特性设置节点在初始渲染的过渡
+     -->
+    <script>
+        let vm = new Vue({
+            el:'#app',
+            data:{
+                show:true
+            },
+            methods: {
+                reset(){
+                    history.go();
+                }
+            },
+        })
+    </script>
+</body>
+</html>

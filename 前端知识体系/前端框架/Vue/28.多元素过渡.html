@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="src/animate.css">
+    <script src="src/vue.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/velocity/1.2.3/velocity.min.js"></script>
+    <style>
+        
+        /* #app{
+            position: relative;
+        }
+        #app button{
+            position: absolute;left: 40px;
+        }
+        .fade-enter,.fade-leave-to{
+            opacity:0;
+        }
+        .fade-enter{transform: translateX(30px)}
+        .fade-leave-to{transform: translateX(-30px)}
+        .fade-enter-active,.fade-leave-active{
+            transition: 1s;
+        } */
+        .component-fade-enter-active, .component-fade-leave-active {
+            transition: opacity .3s ease;
+        }
+        .component-fade-enter, .component-fade-leave-to{
+            opacity: 0;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <!-- 常见示例 -->
+        <!-- <table v-if="items.length > 0">
+
+        </table>
+        <p v-else>sorry,no items found</p> -->
+        <!-- 相同标签时 设置key -->
+        <!-- <button v-if="idEditing" key="save">save</button>
+        <button v-else key="edit">edit</button> -->
+        <!-- 上面可以重写为 -->
+        <!-- <button :key="isEditing">
+            {{isEditing ? 'save':'edit'}}
+        </button> -->
+        <!-- 使用多个v-id的多个元素的过渡也可以重写为绑定了动态属性的单个元素的过渡 -->
+        <!-- <transition>
+            <button v-if="docState === 'saved'" key="saved">edit</button>
+            <button v-if="docState === 'edited'" key="edited">save</button>
+            <button v-if="docState === 'editing'" key="editing">cancel</button>
+        </transition> -->
+        <!-- 可以重写为 -->
+        <!-- <transition>
+            <button :key="docState">
+                {{buttonMsg}}
+            </button>
+        </transition> -->
+
+        <!-- <transition name="fade">
+            <button :key="isOn" @click="isOn =! isOn">{{isOn ? 'on':'off'}}</button>
+        </transition> -->
+        <!-- in-out重写过渡 -->
+        <!-- <transition name="fade"  mode="in-out">
+            <button :key="isOn" @click="isOn = !isOn">{{ isOn ? 'On' : 'Off' }}</button>
+        </transition> -->
+        <!-- out-in 重写过渡 -->
+        <!-- <transition name="fade" mode="out-in">
+            <button :key="isOn">{{isOn ? 'on':'off'}}</button>
+        </transition> -->
+        <!-- 滑动过渡  当元素设置为绝对定位  并相互覆盖  实现透明过渡效果-->
+        <!-- <transition name="fade">
+            <button :key="isOn" @click="isOn =! isOn">{{isOn ? 'on':'off'}}</button>
+        </transition> -->
+        <!-- 使用absolute和translate实现的类似滑动 -->
+        <!-- <transition name="fade">
+            <button :key="isOn" @click="isOn =! isOn">{{isOn ? 'on':'off'}}</button>
+        </transition> -->
+        <!-- 结合in-out 效果炫酷 -->
+        <!-- <transition name="fade" mode=in-out>
+            <button :key="isOn" @click="isOn =! isOn">{{isOn ? 'on':'off'}}</button>
+        </transition> -->
+
+        <!-- 多组件过渡 -->
+        <button @click="change">切换</button>
+        <transition name="component-fade" mode="out-in">
+            <component :is="currentView"></component>
+        </transition>
+    </div>
+    <!-- 
+        常见示例：
+        最常见的多标签过渡是一个列表和描述这个列表为空消息的元素
+        注意：当有相同标签名的元素切换时，需要通过key特性设置唯一的值来标记以让vue区分它们
+        过渡模式：
+        1.in-out：新元素先进行过渡，完成之后当前元素过渡离开 不经常用到
+        2.out-in：当前元素先进行过渡，完成之后新元素过渡进入
+
+        多个组件的过渡:不需要使用key特性，只需要使用动态组件
+     -->
+    <script>
+        let vm = new Vue({
+            el:'#app',
+            data:{
+                // isOn:true
+                index:0,
+                arr:[
+                    {template:'<div>Component A</div>'},
+                    {template:'<div>Component B</div>'},
+                    {template:'<div>Component C</div>'}
+                ]
+            },
+            computed:{
+                currentView(){
+                    return this.arr[this.index];
+                }
+            },
+            methods: {
+                change(){
+                    this.index = (++this.index)%3;
+                }
+            }
+            // computed:{
+            //     buttonMsg(){
+            //         switch(this.docState){
+            //             case 'saved':return 'edit'
+            //             case 'edited':return 'save'
+            //             case 'editing':return 'cancel'
+            //         }
+            //     }
+            // },
+        })
+    </script>
+</body>
+</html>

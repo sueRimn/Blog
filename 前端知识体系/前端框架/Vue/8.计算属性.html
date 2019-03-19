@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="src/vue.js"></script>
+    <style>
+        .red{color: red;}
+        #app div{
+            -display: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+       <p>{{message}}</p>
+       <!-- 取反 -->
+       <p>{{message.split('').reverse().join('')}}</p>
+       <!-- 将模板的数组元素X2并过滤小于10的数 -->
+       <p>{{list.map(item => item*2).filter(item=>item < 10)}}</p>
+        <!-- 计算属性的取反 -->
+        <input type="text" v-model="message">
+        <p>{{reverserMessage}}</p>
+        <p>{{reverserMessage}}</p>
+        <p>{{reverserMessage}}</p>
+       
+        <p>{{newList}}</p>
+    </div>
+    <!-- 
+        计算属性
+        作用：把对处理数据的逻辑抽离在计算属性中，是的模板更加轻量易读
+        定义计算属性
+        computed:{
+
+        }
+     -->
+    <script>
+        let vm = new Vue({
+            el:'#app',
+            data:{
+                message:'sue',
+                list:[1,2,3,4,5]
+            },
+            computed: {//计算属性挂载实例上
+               
+                //计算属性的getter
+                reverserMessage(){
+                     //计算属性对应的函数this都指向实例
+                    console.log(this.message);
+                    //计算属性会把结果缓存，可在模板中重复
+                    console.log('我执行了一次');
+                    return this.message.split('').reverse().join('');//eus
+                    //计算属性中依赖了data中的数据，data中的数据发送变化时，计算属性会重新计算
+                },
+                newList(){
+                    return this.list.map(item => item*2).filter(item=>item < 10);
+                }
+            },
+        })
+    </script>
+</body>
+</html>

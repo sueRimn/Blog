@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="src/vue.js"></script>
+    <style>
+    </style>
+</head>
+<body>
+    <div id="app">
+        <parent></parent>
+    </div>
+    <script>
+        var childNode = {
+            template:`
+                <div class = "child">
+                    <div>
+                        <span>子组件数据</span>
+                        <input v-model="childMsg">
+                        <button @click=add>+1</button>
+                    </div>
+                </div>
+            `,
+            data(){
+                return{
+                    childMsg:0
+                }
+            },
+            methods: {
+                add(){
+                    this.childMsg++;
+                    this.$emit('update:foo',this.childMsg)
+                }
+            }
+        };
+        var parentNode = {
+            template:`
+                <div class="parent">
+                    <div>
+                        <span>父组件数据:{{msg}}</span>
+                        <child :foo.sync="msg"></child>
+                    </div>
+                </div>
+            `,
+            components:{
+                'child':childNode
+            },
+            data(){
+                return{
+                    'msg':0
+                }
+            }
+        };
+        let vm = new Vue({
+            el:'#app',
+            components:{
+                'parent':parentNode
+            }
+        })
+    </script>
+</body>
+</html>

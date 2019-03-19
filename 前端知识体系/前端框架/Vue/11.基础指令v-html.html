@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="src/vue.js"></script>
+    <style>
+        .red{color: red;}
+        #app div{
+            -display: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+       <p>{{msg}}</p>
+       <input type="password" id="pass">
+       <p v-html="msg">{{msg}}</p>
+    </div>
+    <script>
+        //html必须时可靠的
+        var msg = '<div>hello</div>'
+        let vm = new Vue({
+            el:'#app',
+            data:{
+                msg
+            },
+        })
+    </script>
+</body>
+</html>
