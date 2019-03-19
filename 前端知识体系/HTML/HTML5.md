@@ -1,4 +1,5 @@
 # HTML5
+> 关于属性的兼容性，可以使用[Can I Use](https://caniuse.com/)查询。
 ## 新特性（来自[MDN](https://developer.mozilla.org/zh-CN/docs/Web/Guide/HTML/HTML5)）
    * 语义：能够让你更恰当地描述你的内容是什么
    * 连通性：能够让你和服务器之间通过创新的新技术方法进行通信
