@@ -4,8 +4,6 @@
 ## 盒模型
 > 盒模型（`box model`）是元素大小的呈现方式。盒模型默认的值是`content-box`，新增的值是`padding-box`和border-box`
 
-![](https://leohxj.gitbooks.io/front-end-database/content/html-and-css-basic/assets/box-model.svg)
-
 **盒模型计算元素宽高的区别如下**：
 
 **content-box(默认)**：
@@ -92,12 +90,12 @@ height = height(包含padding-top + padding-bottom + border-top + border-bottom)
 * 设置文字环绕
 * 使元素宽度由内容填充　页面布局
 ＊　多个元素内联排列
-#### 注意
+#### 3.注意
 如果浮动元素高度大于父级容器，设置父级容器的`overflow:auto`，使其自动充满，防止父级高度塌陷。
-#### 清除浮动的原因
+#### 4.清除浮动的原因
 当容器的高度`auto`，并且内有浮动元素，容器的高度不能自动撑开以适应内容的高度，是的内容溢出到容器外部，从而影响布局造成浮动溢出，所以要进行CSS清除浮动。
-#### 清除浮动的方法
-** 1.使用带clear属性的空元素**：
+#### 5.清除浮动的方法
+** 使用带clear属性的空元素**：
 ```
 <div class="box-wrapper">
     <div class="box"></div>
@@ -107,7 +105,7 @@ height = height(包含padding-top + padding-bottom + border-top + border-bottom)
 </div>
 ```
 
-**2.使用clearfix**：
+**使用clearfix**：
 ```
 // 现代浏览器clearfix方案，不支持IE6/7
 .clearfix:after {
@@ -143,8 +141,16 @@ height = height(包含padding-top + padding-bottom + border-top + border-bottom)
 }
 ```
 
-**3.BFC清除浮动**：
+**BFC清除浮动**：
 
 给父元素设置`overflow:hidden`实现简单的BFC清除浮动，但是这样元素阴影和下拉菜单会被截断。
-## 居中布局
+## css居中布局
 [水平居中+垂直居中+水平垂直居中](https://github.com/sueRimn/Blog/tree/master/%E5%89%8D%E7%AB%AF%E7%9F%A5%E8%AF%86%E4%BD%93%E7%B3%BB/css/%E5%85%83%E7%B4%A0%E5%B1%85%E4%B8%AD)
+## CSS规范与书写顺序
+#### 语义化命名
+#### 书写顺序
+* 位置顺序（`position` `top` `right` `z-index` `display` `float`等）
+* 大小（`width` `height` `padding` `margin`）
+* 文字（`font` `line-height` `letter-sapce` `color-text-align`等）
+* 背景（`background` `border`等）
+* 其他（`animation` `transition`等）
