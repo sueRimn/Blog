@@ -11,11 +11,6 @@ E-mail | 掘金 | 博客园
       * [HTML基础](./前端知识体系/HTML/HTML基础.md)
       * [HTML5](./前端知识体系/HTML/HTML5.md)
     * [CSS](./前端知识体系/css)
-      * [基础知识](./前端知识体系/css/css基础.md)
-      * [进阶](./前端知识体系/css/css3.md)
-     * css预处理
-        * less 
-        * sass
      * JavaScript Web API
        * 基础知识
        * DOM操作
@@ -34,8 +29,7 @@ E-mail | 掘金 | 博客园
        * 浏览器兼容性处理
        * SEO网站优化
        * 前端框架  
-         * VUE
-         * Angular
+         * Vue
          * React  
        * 移动开发
          * 微信小程序
