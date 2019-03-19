@@ -108,7 +108,7 @@ height = height(包含padding-top + padding-bottom + border-top + border-bottom)
 ```
 
 **使用clearfix**：
-```JavaScript
+```css
 // 现代浏览器clearfix方案，不支持IE6/7
 .clearfix:after {
     display: table;
