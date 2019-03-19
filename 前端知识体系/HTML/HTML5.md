@@ -10,7 +10,15 @@
    * 设备访问 Device Access：能够处理各种输入和输出设备
    * 样式设计: 让作者们来创作更加复杂的主题
 ## 语义化
-> 语义化有利于更好的构架网页内容，便于搜索引擎的索引和抓取内容，并有利于团队的开发和维护
+> 语义化有利于更好的构架网页内容，便于搜索引擎的索引和抓取内容，并有利于团队的开发和维护。深入了解可以查看相关文章。
+《[如何理解Web语义化](https://caniuse.com/)》
+## 常见浏览器及其内核
+  | Chrome | Firefox | Safari | IE | Opera 
+ ------ | ------- | ------- | ------- | ------
+ 渲染引擎 | Blink | Gecko | Webkit |  Trident | Blink
+ JS引擎 | V8 | SpiderMonkey | Nitro | Chakra | V8
+ 前缀 | -mwebkit| -moz | -webkit | -ms | -o
+ 
 ### 1.`<article>`
    * `<article>`：显示一个独立的文章内容
    * `artilce`可以嵌套，则内层的`artilce`对外层的``article`标签有隶属的关系
