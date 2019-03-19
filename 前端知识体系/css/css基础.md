@@ -146,6 +146,13 @@ height = height(包含padding-top + padding-bottom + border-top + border-bottom)
 给父元素设置`overflow:hidden`实现简单的BFC清除浮动，但是这样元素阴影和下拉菜单会被截断。
 ## css居中布局
 [水平居中+垂直居中+水平垂直居中](https://github.com/sueRimn/Blog/tree/master/%E5%89%8D%E7%AB%AF%E7%9F%A5%E8%AF%86%E4%BD%93%E7%B3%BB/css/%E5%85%83%E7%B4%A0%E5%B1%85%E4%B8%AD)
+## link和@import的区别
+ 区别  |  link | @import
+--- | ---  | ------
+功能 |  较多 | 只能用于加载`css`
+加载顺序 | 解析`link`时，页面同步加载所引用的`css` | 页面加载完后才被加载
+浏览器支持 |   | `IE5`以上
+JS动态引入 | Yes | No
 ## CSS规范与书写顺序
 #### 语义化命名
 #### 书写顺序
