@@ -4,27 +4,10 @@
       * [HTML基础](HTML/HTML基础.md)
       * [HTML5](HTML/HTML5.md)
     * CSS
-      * [基础知识](css/css基础.md)
-      * [进阶](css/css3.md)
-      * 布局
-        * 页面快速布局 
-        * 移动端布局 
-        * 自适应 响应 
-        * 三维立体 
-        * 3D坐标系构建和动画 
-        * SVG  
-     * css Hack 
-     * css预处理
-        * less 
-        * sass
+      * [flexbox完全指南](https://github.com/sueRimn/Blog/blob/master/%E5%89%8D%E7%AB%AF%E7%9F%A5%E8%AF%86%E4%BD%93%E7%B3%BB/css/Flexbox%E5%AE%8C%E5%85%A8%E6%8C%87%E5%8D%97(%E8%AF%91).md)
+      * [Grid完全指南](https://github.com/sueRimn/Blog/blob/master/%E5%89%8D%E7%AB%AF%E7%9F%A5%E8%AF%86%E4%BD%93%E7%B3%BB/css/Grid%E5%AE%8C%E5%85%A8%E6%8C%87%E5%8D%97(%E8%AF%91).md)
   * JavaScript Web API
     * 基础知识
-      * 数据类型
-      * 变量
-      * 表达式与运算符
-      * 控制语句
-      * 函数
-      * 异常处理
     * DOM操作
     * BOM操作
     * 原型与原型链
@@ -41,11 +24,8 @@
     * 浏览器兼容性处理
     * SEO网站优化
     * 前端框架  
-      * NodeJs
-      * VUE
-      * Angular
-      * React 
-      * ZeptoJS 
+      * Vue
+      * React
     * 移动开发
       * 微信小程序
     * Chrome调试
