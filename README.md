@@ -4,7 +4,7 @@
 ## 联系方式
 E-mail | 掘金 | 博客园
 ------------ | ------- | ------
-1658318062@qq.com | [sueRimn](https://juejin.im/user/5ac449906fb9a028b92d59d1) | [狐狸家的鱼](https://www.cnblogs.com/suRimn)
+sueRimn@gmail.com | [sueRimn](https://juejin.im/user/5ac449906fb9a028b92d59d1) | [狐狸家的鱼](https://www.cnblogs.com/suRimn)
 ## 目录
 1. [前端知识体系](./前端知识体系)
     * [开发工具](./前端知识体系/开发工具.md) 
