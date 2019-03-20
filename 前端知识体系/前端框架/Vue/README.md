@@ -27,7 +27,7 @@ v-once | 元素和组件只渲染一次，重新渲染,元素/组件及其所有
 ![](https://vue.docschina.org/images/data.png)
 `Vue`实例化时，遍历访问`data`的所有属性，使用` Object.defineProperty `将其属性全部转换为`getter/setter`进行依赖追踪以便修改属性时进行变更通知，每个组件实例都有相应的 watcher 实例对象，它会在组件渲染的过程中把属性记录为依赖，之后当依赖项的 `setter` 被调用时，会通知 watcher 重新计算，从而致使它关联的组件得以更新。
 ## Vue双向数据绑定
-简单实现，有一个子组件输入框，一个按钮，父组件通过`prop`传值给子组件，当按钮增加时，子组件通过`$emit`通知父组件修改相应的`prop`值。
+简单实现，有一个子组件输入框，一个按钮，父组件通过`props`传值给子组件，当按钮增加时，子组件通过`$emit`通知父组件修改相应的`props`值。
 
 ![](https://github.com/sueRimn/Blog/blob/master/%E5%89%8D%E7%AB%AF%E7%9F%A5%E8%AF%86%E4%BD%93%E7%B3%BB/%E5%89%8D%E7%AB%AF%E6%A1%86%E6%9E%B6/Vue/src/GIF.gif)
 ```JavaScript
