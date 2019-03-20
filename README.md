@@ -12,13 +12,15 @@ E-mail | 掘金 | 博客园
       * [HTML5](./前端知识体系/HTML/HTML5.md)
     * [CSS](./前端知识体系/css)
      * JavaScript Web API
-       * 基础知识
-       * DOM操作
+       * [DOM操作](https://github.com/sueRimn/Blog/blob/master/%E5%89%8D%E7%AB%AF%E7%9F%A5%E8%AF%86%E4%BD%93%E7%B3%BB/JavaScript/DOM%E6%93%8D%E4%BD%9C.md)
        * BOM操作
+       * [面向对象编程](https://github.com/sueRimn/Blog/blob/master/%E5%89%8D%E7%AB%AF%E7%9F%A5%E8%AF%86%E4%BD%93%E7%B3%BB/JavaScript/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B.md)
        * 原型与原型链
        * 作用域与闭包
+       * [异步操作](https://github.com/sueRimn/Blog/blob/master/%E5%89%8D%E7%AB%AF%E7%9F%A5%E8%AF%86%E4%BD%93%E7%B3%BB/JavaScript/%E5%BC%82%E6%AD%A5%E6%93%8D%E4%BD%9C%E6%A6%82%E8%BF%B0.md)
+       * [定时器与Promise对象](https://github.com/sueRimn/Blog/blob/master/%E5%89%8D%E7%AB%AF%E7%9F%A5%E8%AF%86%E4%BD%93%E7%B3%BB/JavaScript/%E5%AE%9A%E6%97%B6%E5%99%A8%E4%B8%8EPromise%E5%AF%B9%E8%B1%A1.md)
        * 事件
-       * ES6
+       * [ES6](https://github.com/sueRimn/Blog/blob/master/%E5%89%8D%E7%AB%AF%E7%9F%A5%E8%AF%86%E4%BD%93%E7%B3%BB/JavaScript/ES6%E7%AC%94%E8%AE%B0.md)
      * AJAX异步操作
      * Regex 正则表达式
      * HTTP协议
@@ -45,12 +47,7 @@ E-mail | 掘金 | 博客园
        * 跨域处理
 2. [代码版本管理]()
     * Git与Github 
-3. 算法
-4. 数据结构
-5. 面向对象
-6. 设计模式
-7. 后端
-8. 构建工具与包管理器
+3. 构建工具与包管理器
     * Webpack
     * gulp
     * npm

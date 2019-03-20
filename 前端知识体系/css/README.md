@@ -98,7 +98,7 @@ height = height(包含padding-top + padding-bottom + border-top + border-bottom)
 当容器的高度`auto`，并且内有浮动元素，容器的高度不能自动撑开以适应内容的高度，是的内容溢出到容器外部，从而影响布局造成浮动溢出，所以要进行CSS清除浮动。
 #### 5.清除浮动的方法
 ** 使用带clear属性的空元素**：
-```
+```html
 <div class="box-wrapper">
     <div class="box"></div>
     <div class="box"></div>
@@ -108,7 +108,7 @@ height = height(包含padding-top + padding-bottom + border-top + border-bottom)
 ```
 
 **使用clearfix**：
-```
+```css
 // 现代浏览器clearfix方案，不支持IE6/7
 .clearfix:after {
     display: table;
