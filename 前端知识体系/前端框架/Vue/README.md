@@ -1,6 +1,7 @@
 # vue
 ## MVVM(Model-View-ViewModel)模型
 ![](https://upload.wikimedia.org/wikipedia/commons/8/87/MVVMPattern.png)
+
 `MVVM`分为`Model`、`View`、`ViewModel`三部分。
 * `Model`代表数据模型，定义数据和业务逻辑，访问数据层
 * `View`代表视图，展示页面结构、布局和外观（UI）
