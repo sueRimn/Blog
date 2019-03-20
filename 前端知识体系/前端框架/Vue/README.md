@@ -120,7 +120,9 @@ v-once | 元素和组件只渲染一次，重新渲染,元素/组件及其所有
 * 带有自动激活的 CSS class 的链接
 * HTML5 历史模式或 hash 模式，在 IE9 中自动降级
 * 自定义的滚动条行为
+
 下面是一个简单路由的实现：
+
  ![](https://github.com/sueRimn/Blog/blob/master/%E5%89%8D%E7%AB%AF%E7%9F%A5%E8%AF%86%E4%BD%93%E7%B3%BB/%E5%89%8D%E7%AB%AF%E6%A1%86%E6%9E%B6/Vue/src/vue-router.gif)
  ```javascript
  <div id="app" class="demo">
