@@ -37,7 +37,7 @@ sueRimn@gmail.com | [sueRimn](https://juejin.im/user/5ac449906fb9a028b92d59d1) |
        * [React](https://github.com/sueRimn/Blog/tree/master/%E5%89%8D%E7%AB%AF%E7%9F%A5%E8%AF%86%E4%BD%93%E7%B3%BB/%E5%89%8D%E7%AB%AF%E6%A1%86%E6%9E%B6/React) 
      * 移动开发
        * 微信小程序
-     * Chrome调试
+     * [Chrome调试](https://github.com/sueRimn/Blog/blob/master/%E5%89%8D%E7%AB%AF%E7%9F%A5%E8%AF%86%E4%BD%93%E7%B3%BB/Chrome%E8%B0%83%E8%AF%95.md)
      * 性能优化
      * 项目部署
      * Emmet快速编写
