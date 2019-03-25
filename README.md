@@ -1,6 +1,7 @@
 # :sunny:九莉的博客
 > 主要整理记录平时中的用到的前端知识体系以及一些经验所得
-> Done is better than perfect
+
+**Done is better than perfect**
 ## 联系方式
 E-mail | 掘金 | 博客园
 ------------ | ------- | ------
