@@ -171,13 +171,14 @@ Object.getPrototypeOf(Object.prototype)
 let Person = function(){};
 let people = new Person();
 Object.getPrototypeOf(people);//Person.prototype
+```
 * 获取实例对象`obj`的原型对象有三种方法：
   * `obj._proto_`
   * `obj.constructor.prototype`
   * `Objct.getPrototyprOf(obj)`
 * `Object.getOwnPropertyNames`：返回一个数组，元素是参数对象本身所有属性的键名
 * `Object.prototype.hasOwnProperty()`：返回布尔值，判断某个属性在对象自身还是在原型链上
-```
+
 #### `hasOwnPrototype`属性(推荐用于遍历对象属性)
 * 判断一个对象是否包含自定义属性而不是原型链上的属性
 * `hasOwnProperty` 是 `JavaScript` 中唯一一个处理属性但是不查找原型链的函数
