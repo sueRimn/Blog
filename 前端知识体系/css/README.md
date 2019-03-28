@@ -44,6 +44,7 @@ height = height(包含padding-top + padding-bottom + border-top + border-bottom)
 * 子元素选择器：`li:firth-child`等
 * 相邻兄弟选择器：`p + span`
 * 群组选择器：`h1, h2, h3,...,h6`
+
 **选择器优先级顺序**：`!important`> 行内样式 > ID选择器 > 类选择器 > 元素和伪元素 > 通配符 > 继承 > 默认
 #### [返回顶部](#css)
 ## CSS单位
