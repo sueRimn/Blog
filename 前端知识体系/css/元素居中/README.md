@@ -38,3 +38,5 @@
    * 利用`flex`布局，其中`justify-content` 用于设置或检索弹性盒子元素在主轴（横轴）方向上的对齐方式；而`align-items`属性定义`flex`子项在`flex`容器的当前行的侧轴（纵轴）方向上的对齐方式。不能兼容低版本的IE浏览器。
 ### 5.`flex/grig`和`margin:0 auto`(最简单的写法)
    * 容器元素设为 `flex` 布局或是`grid`布局，子元素只要写 `margin: auto` 即可,不能兼容低版本的IE浏览器
+### 参考阅读
+[如何居中一个元素](https://github.com/ljianshu/Blog/issues/29)
