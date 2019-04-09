@@ -48,3 +48,25 @@ document.getElementById(id) | 查找一个id名元素
 document.getElementsByTagName(name) | 查找一个标签名元素
 document.getElementByClassName(name) | 查找一个class名元素
 ### 2.更改html元素
+属性 | 说明
+--- | ---
+element.innerHTML = new html.content | 更改HTML元素内容
+element.attribute = new value | 更改HTML元素属性值
+element.style.property = new style | 更改HTML元素样式
+
+方法 | 说明
+---- | ----
+element.setAttribute(attribute, value) | 更改HTML元素属性值
+### 3.添加或删除元素
+方法 | 说明
+---- | -----
+document.createElement(element) | 创建一个HTML元素
+document.removeChild(element) | 溢出一个HTML元素
+document.appendChild(element) | 添加一个HTML元素
+document.replace(new, old) | 替换一个HTML元素
+document.write(text) | 写入HTML并在屏幕上输出
+### 4.添加事件
+方法 | 说明
+---- | ----
+document.getElementById(id).onclick = function(){code} | 添加一个onclick事件
+### 5.查找HTML对象
