@@ -70,6 +70,10 @@ height = height(包含padding-top + padding-bottom + border-top + border-bottom)
 #### 2.position属性
 元素在也页面中的布局遵守文档流的方式，默认定位属性是`static`。如果元素被定位了，它的`top`\`left`\`bottom`\`left`值就会生效，能设置定位属性`relative`\`absolute`\`fixed`。被定位的元素层级（`z-index`）会被提高。
 
+**static(静态定位)**：
+
+HTML元素定位默认是静态的，不受顶部、底部、左部、右部影响，总是根据页面正常流定位。
+
 **relative(相对定位)**：
 
 设置之后，通过修改`top left bottom right`值，元素会在自身文档流里偏离位置，但是其他元素不会调整位置来弥补它偏离后剩下的空隙。
@@ -85,8 +89,19 @@ height = height(包含padding-top + padding-bottom + border-top + border-bottom)
 **fixed(固定定位)**：
 
 设置之后，元素相对的偏移的参考可视窗口的，即使在页面滚动的情况下，也会在固定位置。
+
+**sticky(粘性定位)**：
+
+根据用户的滚动位置定位
+#### 3.z-index重叠顺序
+## css溢出overflow
+`overflow`属性具有以下属性值：
+* `visible`：默认。溢出不会被截断，内容呈现溢出的部分
+* `hidden`: 溢出被截断，隐藏
+* `scroll`：添加滚动条显示溢出部分内容
+* `auto`：和`scroll`类型，只是在需要时才会添加滚动条
 #### [返回顶部](#css)
-## CSS浮动
+## CSS浮动float
 #### 1.什么是浮动
 浮动元素会脱离文档流，按照指定方向移动，遇到父级边界或者相邻的浮动元素停止。
 #### 2.浮动的作用
@@ -108,7 +123,7 @@ height = height(包含padding-top + padding-bottom + border-top + border-bottom)
 </div>
 ```
 
-**使用clearfix**：
+**使用clearfix hack**：
 ```css
 // 现代浏览器clearfix方案，不支持IE6/7
 .clearfix:after {
@@ -150,6 +165,32 @@ height = height(包含padding-top + padding-bottom + border-top + border-bottom)
 #### [返回顶部](#css)
 ## css居中布局
 [水平居中+垂直居中+水平垂直居中](https://github.com/sueRimn/Blog/tree/master/%E5%89%8D%E7%AB%AF%E7%9F%A5%E8%AF%86%E4%BD%93%E7%B3%BB/css/%E5%85%83%E7%B4%A0%E5%B1%85%E4%B8%AD)
+## css常见对齐方式
+**水平居中**：
+
+* 1.水平居中块元素，使用`margin:auto`，设置元素的宽度
+* 2.文本居中，使用`text-align:center`
+* 3.图像居中，左右边距`auto`，`display: block`块元素显示
+* 4.左右对齐：
+ * 使用`position:absolute`
+ * 使用`float`
+ 
+**垂直居中**：
+
+* 1.使用填充`padding`
+* 2.使用`line-height`等于`height
+* 3.使用`position`和`transform`
+## css伪类
+伪类用于定义元素的特殊状态，用单冒号`:`连接
+* 锚伪类：`:link` `:visited` `:hover` `:active`
+* 孩子伪类：`:first-child`匹配的指定的元素是另一个元素的第一个孩子
+## css伪元素
+伪元素用于设置元素指定的部分样式，使用双冒号`::`连接,可多样结合
+* `::first-line`：用于向文本的第一行添加特殊样式，只能用于块级元素
+* `::dirst-letter`：用于向文本的第一个字母添加特殊样式，只能用于块级元素
+* `::before`:用于元素内容之前插入某些内容
+* `::after`：用于元素的内容之后插入某些内容
+* `::selection`：用于元素匹配用户选择的部分
 ## CSS3的过渡、变换和动画
 * `transition`:过渡
  * `transition-property`：过渡属性
