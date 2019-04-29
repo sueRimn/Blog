@@ -51,7 +51,7 @@ var id2 = setInterval(f, 1000);
 clearTimeout(id1);
 clearInterval(id2);
 ```
-# Promise对象
+# Promise 对象
 ## 概述
 
 Promise 对象是 JavaScript 的异步操作解决方案，为异步操作提供统一接口。它起到代理作用（proxy），充当异步操作与回调函数之间的中介，使得异步操作具备同步操作的接口。Promise 可以让异步操作写起来，就像在写同步操作的流程，而不必一层层地嵌套回调函数。
@@ -77,16 +77,16 @@ p1.then(f2);
 
 上面代码中，`f1`的异步操作执行完成，就会执行`f2`。
 ## Promise 对象的状态
+`Promise` 实例具有三种状态：
 
-Promise 对象通过自身的状态，来控制异步操作。Promise 实例具有三种状态。
+- `pending`：异步操作未完成，正在执行
+- `fulfilled`：异步操作成功
+- `rejected`：异步操作失败
+- `settled`：`Promise`处于 `fulfilled` 或 `rejected `二者中的任意一个状态, 不会是 `pending`
 
-- 异步操作未完成（pending）
-- 异步操作成功（fulfilled）
-- 异步操作失败（rejected）
+上面状态里面，`fulfilled`和`rejected`合在一起称为`resolved`（已定型）。
 
-上面三种状态里面，`fulfilled`和`rejected`合在一起称为`resolved`（已定型）。
-
-这三种的状态的变化途径只有两种。
+状态的变化途径只有两种。
 
 - 从“未完成”到“成功”
 - 从“未完成”到“失败”
@@ -97,12 +97,43 @@ Promise 对象通过自身的状态，来控制异步操作。Promise 实例具�
 
 - 异步操作成功，Promise 实例传回一个值（value），状态变为`fulfilled`。
 - 异步操作失败，Promise 实例抛出一个错误（error），状态变为`rejected`。
+## Promise 属性
+* `Promise.length`：其值总是1（构造器参数的数目）
+* `Promise.prototype`:表示`Promise`构造器的原型
+## Promise 方法
+### Promise.all(iterable)
+* 返回一个新的`promise`对象，该对象在`iterable`参数对象里所有的`promise`对象都成功的时候才会触发成功
+* 触发成功状态以后，会把一个包含`iterable`里所有`promise`返回值的数组作为成功回调的返回值，顺序跟`iterable`的顺序保持一致
+* 触发了失败状态，它会把`iterable`里第一个触发失败的`promise`对象的错误信息作为它的失败错误信息
+### Promise.race(iterable)
+当iterable参数里的任意一个子promise被成功或失败后，父promise马上也会用子promise的成功返回值或失败详情作为参数调用父promise绑定的相应句柄，并返回该promise对象
+### Promise.reject(reason)
+返回一个状态为失败的Promise对象，并将给定的失败信息传递给对应的处理方法
+### Promise.resolve(value)
+* 返回一个状态由给定value决定的Promise对象
+* 如果该值是thenable(即，带有then方法的对象)，返回的Promise对象的最终状态由then方法执行决定
+* 否则(该value为空，基本类型或者不带then方法的对象),返回的Promise对象状态为fulfilled，并且将该value传递给对应的then方法
+## Promise 原型
+### 属性
+Promise.prototype.constructor：返回被创建的实例函数，默认为`Promise`函数
+### 方法
+#### Promise.prototype.catch(onRejected)
+添加一个拒绝(`rejection`) 回调到当前 `promise`, 返回一个新的`promise`。
 
+当这个回调函数被调用，新 promise 将以它的返回值来resolve，否则如果当前promise 进入fulfilled状态，则以当前promise的完成结果作为新promise的完成结果。
+#### Promise.prototype.then(onFulfilled, omRejected)
+添加解决(`fulfillment`)和拒绝(`rejection`)回调到当前 `promise`, 返回一个新的 `promise`, 将以回调的返回值来`resolve`。
+#### Promise.prototype.finally(onFinally)
+添加一个事件处理回调于当前`promise`对象，并且在原`promise`对象解析完毕后，返回一个新的`promise`对象。
+
+回调会在当前`promise`运行完毕后被调用，无论当前`promise`的状态是完成(`fulfilled`)还是失败(`rejected`)。
 ## Promise 构造函数
 
 JavaScript 提供原生的`Promise`构造函数，用来生成 Promise 实例。
+
+异步任务顺利完成且返回结果值时，会调用 resolve 函数；而当异步任务失败且返回失败原因（通常是一个错误对象）时，会调用reject 函数。
 ```javascript
-var promise = new Promise(function (resolve, reject) {
+var promise = new Promise((resolve, reject) => {
   // ...
 
   if (/* 异步操作成功 */){
@@ -112,9 +143,10 @@ var promise = new Promise(function (resolve, reject) {
   }
 });
 ```
-`resolve`函数的作用是，将`Promise`实例的状态从“未完成”变为“成功”（即从`pending`变为`fulfilled`），在异步操作成功时调用，并将异步操作的结果，作为参数传递出去。`reject`函数的作用是，将`Promise`实例的状态从“未完成”变为“失败”（即从`pending`变为`rejected`），在异步操作失败时调用，并将异步操作报出的错误，作为参数传递出去。
-## Promise.prototype.then()
+`resolve`函数的作用是，将`Promise`实例的状态从“未完成”变为“成功”（即从`pending`变为`fulfilled`），在异步操作成功时调用，并将异步操作的结果，作为参数传递出去。
 
+`reject`函数的作用是，将`Promise`实例的状态从“未完成”变为“失败”（即从`pending`变为`rejected`），在异步操作失败时调用，并将异步操作报出的错误，作为参数传递出去。
+## Promise.prototype.then()
 Promise 实例的`then`方法，用来添加回调函数。
 
 `then`方法可以接受两个回调函数，第一个是异步操作成功时（变为`fulfilled`状态）的回调函数，第二个是异步操作失败（变为`rejected`）时的回调函数（该参数可以省略）。一旦状态改变，就调用相应的回调函数。
