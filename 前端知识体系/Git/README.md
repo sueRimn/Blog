@@ -85,5 +85,25 @@ feature/xxx xxx代表需要做的事情
 #### 5.推送改动
 提交到远程仓库：`git push origin <分支名>`
 如果报错，可以试试先pull更新合并一下本地仓库代码：`git pull`
-### 6.分支
+#### 6.分支
 在创建仓库的时候，`master` 是“默认的”。在其他分支上进行开发，完成后再将它们合并到主分支上。
+* 创建分支并切换过去：`git checkout -b <分支名>`
+* 切换回主分支：`git checkout master`
+* 删掉新分支：`git branch -d <分支名>`
+* 分支未推送到远程仓库，不为他人可见
+
+#### 7.更新与合并
+* 更新本地仓库：`git pull`
+* 在工作目录中获取(`fetch`)并合并(merge)远程的改动，合并其他分支到当前分支：`git merge <branch>`
+
+两种情况下，`git `都会尝试去自动合并改动。
+
+不幸的是，自动合并并非次次都能成功，并可能导致 冲突（`conflicts`）。 
+
+这时候就需要自己修改这些文件来人肉合并这些 冲突（`conflicts`） 了。
+
+改完之后：
+`git add <filename>`
+
+合并改动之前，可以查看：
+`git diff<source_branch> <traget_branch>`
