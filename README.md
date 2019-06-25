@@ -1,7 +1,7 @@
 # :sunny:九莉的博客
 > 主要整理记录平时中的用到的前端知识体系以及一些经验所得，以夯实基础为出发点，迈向更高阶，握爪(●ˇ∀ˇ●)
 
-**Done is better than perfect**
+**做人嘛，最重要的是开心，学习嘛，最重要的也是开心**
 ## 联系方式
 E-mail | 掘金 | 博客园
 ------------ | ------- | ------
@@ -26,7 +26,7 @@ sueRimn@gmail.com | [sueRimn](https://juejin.im/user/5ac449906fb9a028b92d59d1) |
 #### 1.[常见浏览器兼容性处理](https://github.com/sueRimn/Blog/blob/master/%E5%89%8D%E7%AB%AF%E7%9F%A5%E8%AF%86%E4%BD%93%E7%B3%BB/%E6%B5%8F%E8%A7%88%E5%99%A8/%E6%B5%8F%E8%A7%88%E5%99%A8%E5%85%BC%E5%AE%B9%E6%80%A7%E9%97%AE%E9%A2%98.md)
 #### 2.[浏览器数据存储速写](https://github.com/sueRimn/Blog/blob/master/%E5%89%8D%E7%AB%AF%E7%9F%A5%E8%AF%86%E4%BD%93%E7%B3%BB/%E6%B5%8F%E8%A7%88%E5%99%A8/%E6%B5%8F%E8%A7%88%E5%99%A8%E6%95%B0%E6%8D%AE%E5%AD%98%E5%82%A8.md)
 ### 「 Vue全家桶 」 U•ェ•*U
-#### 1.[Vuex攻略]()
+#### 1.[Vuex简单理解](https://github.com/sueRimn/Blog/issues/1)
 #### 2.[Vue针对性笔记](https://github.com/sueRimn/Blog/tree/master/%E5%89%8D%E7%AB%AF%E7%9F%A5%E8%AF%86%E4%BD%93%E7%B3%BB/%E5%89%8D%E7%AB%AF%E6%A1%86%E6%9E%B6/Vue)
 ### 「 HTTP协议与数据请求 」 ( ╯□╰ )
 ### 「 调试方法 」 ψ(._. )>
