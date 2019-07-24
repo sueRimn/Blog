@@ -107,3 +107,34 @@ feature/xxx xxx代表需要做的事情
 
 合并改动之前，可以查看：
 `git diff<source_branch> <traget_branch>`
+
+#### 8.完整简单命令步骤
+1、GitHub创建新的仓库，复制链接
+
+2、在本地文件夹中初始化，会生成`.git`文件
+```bash
+git init
+```
+3、将本地文件上传本地仓库暂存
+```bash
+git add .
+```
+4、然后提交本地仓库的文件到暂存区，并备注
+```bash
+git commit -m "备注信息"
+```
+5、将远程仓库链接设为远程可提交仓库
+```bash
+git remote add origin 链接
+```
+6、最后将暂存区文件推送到远程仓库
+```bash
+git push origin master
+```
+7、如果后期推送存在失败，要将远程仓库`pull`一遍更新本地的文件之后再重新推送
+
+```bash
+git pull origin master
+git push origin master
+
+```
