@@ -33,7 +33,7 @@ sueRimn@gmail.com | [sueRimn](https://juejin.im/user/5ac449906fb9a028b92d59d1) |
 ### 「 调试方法 」 ψ(._. )>
 #### 1.[Chrome调试](https://github.com/sueRimn/Blog/blob/master/%E5%89%8D%E7%AB%AF%E7%9F%A5%E8%AF%86%E4%BD%93%E7%B3%BB/Chrome%E8%B0%83%E8%AF%95.md)
 ### 「前端安全与性能」 (/≧▽≦)/
-#### 1.[详记CSRF攻击与XSS攻击]()
+#### 1.[详记CSRF攻击与XSS攻击](https://github.com/sueRimn/Blog/blob/master/%E5%89%8D%E7%AB%AF%E7%9F%A5%E8%AF%86%E4%BD%93%E7%B3%BB/%E5%89%8D%E7%AB%AF%E5%AE%89%E5%85%A8%E4%B8%8E%E6%80%A7%E8%83%BD/%E8%AF%A6%E8%AE%B0CSRF%E4%B8%8EXSS.md)
 #### 2.[跨域与常见解决方案]()
 ### 「面试口袋」 (oﾟvﾟ)ノ
 #### 1.[前端面试揣包小册](https://github.com/sueRimn/Blog/blob/master/%E5%89%8D%E7%AB%AF%E7%9F%A5%E8%AF%86%E4%BD%93%E7%B3%BB/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E6%8F%A3%E5%8C%85%E5%B0%8F%E5%86%8C.md)
