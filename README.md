@@ -14,7 +14,7 @@ sueRimn@gmail.com | [sueRimn](https://juejin.im/user/5ac449906fb9a028b92d59d1) |
 #### 1.[最美不过CSS](https://github.com/sueRimn/Blog/tree/master/%E5%89%8D%E7%AB%AF%E7%9F%A5%E8%AF%86%E4%BD%93%E7%B3%BB/css)
 #### 2.[Flexbox完全指南(译)](https://github.com/sueRimn/Blog/blob/master/%E5%89%8D%E7%AB%AF%E7%9F%A5%E8%AF%86%E4%BD%93%E7%B3%BB/css/Flexbox%E5%AE%8C%E5%85%A8%E6%8C%87%E5%8D%97(%E8%AF%91).md)
 #### 3.[Grid完全指南(译)](https://github.com/sueRimn/Blog/blob/master/%E5%89%8D%E7%AB%AF%E7%9F%A5%E8%AF%86%E4%BD%93%E7%B3%BB/css/Grid%E5%AE%8C%E5%85%A8%E6%8C%87%E5%8D%97(%E8%AF%91).md)
-#### 4.[元素居中那点事](https://github.com/sueRimn/Blog/tree/master/%E5%89%8D%E7%AB%AF%E7%9F%A5%E8%AF%86%E4%BD%93%E7%B3%BB/css/%E5%85%83%E7%B4%A0%E5%B1%85%E4%B8%AD)
+#### 4.[元素居中那点事](https://github.com/sueRimn/Blog/issues)
 #### 5.[响应式布局-大丈夫能屈能伸]()
 ### 「 Javascript札记 」 (っ´Ι`)っ
 #### 1.[JavaScript那些磨人的小东西](https://github.com/sueRimn/Blog/tree/master/%E5%89%8D%E7%AB%AF%E7%9F%A5%E8%AF%86%E4%BD%93%E7%B3%BB/JavaScript)
