@@ -3,7 +3,7 @@
 
 **做人嘛，最重要的是开心，学习嘛，最重要的也是开心**
 ## 联系方式
-E-mail | 掘金 | 博客园
+E-mail | 掘金 | segmentfault
 ------------ | ------- | ------
 sueRimn@gmail.com | [sueRimn](https://juejin.im/user/5ac449906fb9a028b92d59d1) | [sueRimn](https://segmentfault.com/u/suerimn)
 ## 目录
