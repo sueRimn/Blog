@@ -5,7 +5,7 @@
 ## 联系方式
 E-mail | 掘金 | 博客园
 ------------ | ------- | ------
-sueRimn@gmail.com | [sueRimn](https://juejin.im/user/5ac449906fb9a028b92d59d1) | [狐狸家的鱼](https://www.cnblogs.com/suRimn)
+sueRimn@gmail.com | [sueRimn](https://juejin.im/user/5ac449906fb9a028b92d59d1) | [sueRimn](https://segmentfault.com/u/suerimn)
 ## 目录
 ### 「 HTLML小窝 」 (●'◡'●)
 #### 1.[HTML标签元素速记](https://github.com/sueRimn/Blog/blob/master/%E5%89%8D%E7%AB%AF%E7%9F%A5%E8%AF%86%E4%BD%93%E7%B3%BB/HTML/HTML%E5%9F%BA%E7%A1%80.md)
