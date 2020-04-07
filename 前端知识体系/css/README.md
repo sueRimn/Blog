@@ -4,13 +4,19 @@
 ## 盒模型
 > 盒模型（`box model`）是元素大小的呈现方式。盒模型默认的值是`content-box`，新增的值是`padding-box`和border-box`
 
+盒模型分为标准盒模型和怪异盒模型（IE模型）
+
+```css
+box-sizing: content-box; // 标准盒模型 
+box-sizing: border-box; // 怪异盒模型
+```
+
+
 **盒模型计算元素宽高的区别如下**：
 
 **content-box(默认)**：
 
-width = width + padding-left + padding-right + border-left + border-right;
-
-height = height + padding-top + padding-bottom + border-top + border-bottom;
+width+margin+border+padding宽度
 
 **padding-box**:
 
@@ -24,7 +30,8 @@ width = width(包含padding-left + padding-right + border-left + border-right);
 
 height = height(包含padding-top + padding-bottom + border-top + border-bottom);
 ## BFC
-`BFC`就是块级格式上下文，是一个独立渲染区域，让处于`BFC`内部的怨怒是和外部的元素相互隔离，使内部元素的定位不会相互影响
+`BFC`就是块级格式上下文，是一个独立渲染区域，让处于`BFC`内部的元素和外部的元素相互隔离，使内部元素的定位不会相互影响
+
 #### BFC的作用
 * 防止`margin`重叠
 * 清除内部浮动
@@ -168,18 +175,20 @@ HTML元素定位默认是静态的，不受顶部、底部、左部、右部影�
 ## css常见对齐方式
 **水平居中**：
 
-* 1.水平居中块元素，使用`margin:auto`，设置元素的宽度
+* 1.块元素，使用`margin:0 auto`，设置元素的宽度
 * 2.文本居中，使用`text-align:center`
 * 3.图像居中，左右边距`auto`，`display: block`块元素显示
-* 4.左右对齐：
- * 使用`position:absolute`
- * 使用`float`
- 
+* 4.Flex：`display：flex; justify-content: center`
+* 5.左右对齐：
+   * 使用`position:absolute`
+   * 使用`float`
+
 **垂直居中**：
 
 * 1.使用填充`padding`
-* 2.使用`line-height`等于`height
+* 2.使用`line-height`等于`height`
 * 3.使用`position`和`transform`
+* 4.`flex: display: flex; align-item: center`
 ## css伪类
 伪类用于定义元素的特殊状态，用单冒号`:`连接
 * 锚伪类：`:link` `:visited` `:hover` `:active`
@@ -208,7 +217,7 @@ HTML元素定位默认是静态的，不受顶部、底部、左部、右部影�
  * `animation-iteration-count`：动画重复次数
  * `animation-direction`：动画执行完一次后方向的变化方式
  * `animation-timing-function`：变化的模式
- 
+
  #### [返回顶部](#css)
 ## link和@import的区别
  区别  |  link | @import
@@ -217,7 +226,20 @@ HTML元素定位默认是静态的，不受顶部、底部、左部、右部影�
 加载顺序 | 解析`link`时，页面同步加载所引用的`css` | 页面加载完后才被加载
 浏览器支持 |   | `IE5`以上
 JS动态引入 | Yes | No
+## 多行文本省略
+
+```css
+text {
+    overflow : hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical
+}
+```
+
 ## CSS规范与书写顺序
+
 规范参考[京东前端开发规范](https://guide.aotu.io/docs/css/code.html)
 ### css代码规范
 样式文件必须写上 `@charset` 规则，并且一定要在样式文件的第一行首个字符位置开始写，编码名用 `“UTF-8”`

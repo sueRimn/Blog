@@ -41,25 +41,27 @@
 ## 数组`Array`
 > 对象允许存储键值化的集合,可以存储任何类型的元素
 ### 方法
-#### 添加/移除元素 `pop/push`、`shift/unshift`
+#### 添加/移除元素 `pop/push`、`shift/unshift`（改变原数组）
 * `unshift`：在数组首部添加一个元素
 * `shift`：取出并返回第一个元素
 * `push`：在末尾添加一个元素
 * `pop`:取出并返回最后一个元素
-#### 添加/删除/插入元素`splice()`/`slice()`
+#### 添加/删除/插入元素`splice()`（改变原数组）/`slice()`
 `arr.splice(index[], deleteCount, elem1, ..., elemN])`
 * 从索引位置删除几个元素，并用另外的元素替换它们。
 * 将 `deleteCoun`t 设置为 0，`splice` 方法就能够插入元素而不用删除
 `arr.slice(start, end)`
 * 从所有元素的开始索引 "start" 复制到 "end" (不包括 "end") 返回一个新的数组
 #### 合并数组`concat()`
-`arr.concat(arg1, arg2...)`
-#### 查询数组 `sort()`
+`arr.concat(arg1, arg2...)`，浅拷贝
+
+#### 查询数组 
 * 1.`indexOf/lastIndexOf` 和 `includes`
   * `arr.indexOf(item, from)` 从索引 `from` 查询 `item`，如果找到返回索引，否则返回 `-1`
   * `arr.lastIndexOf(item, from)` 和上面相同，只是从尾部开始查询
   * `arr.includes(item, from)` 从索引 `from` 查询 `item`，如果找到则返回 `true`
 * 2.`find` 和 `findIndex`
+  
   ```javascript
   let result = arr.find(function(item, index, array) {
   // 如果查询到返回 true
@@ -69,9 +71,15 @@
   * `index`是它的索引
   * `array`是数组本身
   
+
 返回`true`停止查询，返回`item`，没有查询到结果则返回`undefined`。
 
 `arr.findIndex`与之一样，不过返回的是元素索引而不是元素本身。
+
+* 3.`some`和`every`
+  * `some`：查到一项`true`全为`true`
+  * `every`：查到一项`false`全为`false`
+
 #### 过滤数组`filter()`
 > 返回所有匹配元素组成的数组
 ```javascript
@@ -87,7 +95,7 @@ let result = arr.map(function(item, index, array) {
   // 返回新值而不是当前元素
 })
 ```
-* `sort()`:数组排序
+* `sort()`:数组排序，会改变原数组
 * `reverse()`:颠倒数组，然后返回它
 #### 迭代`forEach`
 > 允许为数组的每个元素运行一个函数
@@ -101,6 +109,7 @@ arr.forEach(function(item, index, array) {
 * `for...of`：不能获取当前元素的索引,只能访问 `items`
 * `for...in`（不推荐）
 * `forEach`
+* `map`：遍历数组返回新数组
 ## 对象(`Object`)
 * 对象是用来存储键值对和属性的实体
 * 对象是单个实物的抽象
@@ -206,7 +215,11 @@ let copyObj = origin => {
 }
 ```
 #### `this`关键字
+
+> this总是指向函数的直接调用者
+
 **1.涵义**
+
 * `this`在构造函数中，表示实例对象
 * 不管在什么场合，它总是返回一个对象
 * `this`就是属性或方法“当前”所在的对象
@@ -276,7 +289,109 @@ new();//我叫jack，21
 ## 函数
 ### 作用域与闭包
 #### 作用域
-JavaScript语言的作用域仅存在于函数范围中
+JavaScript语言的作用域仅存在于函数范围中，作用域分为全局作用域和函数作用域。
 
+作用域有上下级关系，嵌套的函数存在层层的上下级关系。
 
+**作用域用处**
 
+隔离变量，不同作用域下的同名变量不会有冲突。
+
+**作用域链**
+
+当函数创建变量，变量在函数作用域中取值时，查不到值就会向上级作用域去查找，直到全局作用域，这么一个过程形成的链条就叫作用域链。
+
+### 闭包
+
+闭包就是能够读取其他函数内部变量的函数。函数即闭包。
+
+```javascript
+function one () {
+    let a = 1;
+    function two () {
+        console.log(a)
+    }
+    return two()
+}
+// 函数two就形成闭包
+```
+
+**闭包的特征**
+
+* 函数内嵌套函数
+* 内部函数可以引用外层的参数和变量
+* 参数和变量不会受制于垃圾回收机制
+
+**闭包的优缺点**
+
+* 封装对象的私有的变量和方法
+  * 优点：避免全局污染
+  * 缺点：内存常驻，增加内存开销，使用不当造成内存泄漏
+* 读取函数内部的变量，让变量始终保持在内存中
+
+**闭包的用处**
+
+实现封装和缓存
+
+## 模块化
+
+### 优点
+
+* 避免变量污染和命名冲突
+* 提高代码复用性
+* 提供可维护性
+* 便于依赖关系管理
+
+### 模块化方法
+
+#### 函数封装
+
+* 避免变量污染
+* 但是外部可以随意修改内部成员，产生安全问题
+
+```javascript
+let module = {
+	one: 1,
+    two: 2,
+    fn1 () {
+        
+    },
+    fn2 () {
+        
+    }
+}
+```
+
+#### 立即执行函数
+
+* 模块外部无法修改内部没有暴露的变量、函数
+* 但是会增加开销
+
+```javascript
+let myModule = (function(){
+    let var1 = 1;
+    let var2 = 2;
+    
+    function fn1(){
+    
+    } 
+    
+    function fn2(){
+    
+    }
+
+return {
+    fn1: fn1,
+    fn2: fn2
+};
+})();
+
+```
+
+### 异步回调地狱
+
+#### 解决方法
+
+* promise
+* generator
+* async/awit
