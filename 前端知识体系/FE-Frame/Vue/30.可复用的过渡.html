@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="src/animate.css">
+    <script src="src/vue.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/velocity/1.2.3/velocity.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.14.1/lodash.min.js"></script>
+
+</div>
+
+    <style>
+    </style>
+</head>
+<body>
+    <div id="app" class="demo">
+       
+    </div>
+    <!-- 
+       把<transition>或者<transition-group>作为根组件，任何子组件放置在其中就可以了
+        动态过渡：在vue中即使是过渡也是数据驱动的，动态过渡最基本的例子是通过name特性来绑定动态值
+          用过渡系统来定义的css过渡/动画  在不同过度间切换会非常有用
+     -->
+    <script>
+        let vm = new Vue({
+            el:'#app',
+        })
+    </script>
+</body>
+</html>

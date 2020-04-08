@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="src/vue.js"></script>
+    <style>
+    </style>
+</head>
+<body>
+    <div id="app">
+       <p>{{msg}}</p>
+    </div>
+    <!-- 
+        事件修饰符
+        方法只有纯粹的数据逻辑，而不是去处理DOM 
+        事件细节
+        @事件名.修饰符.修饰符=“事件处理函数”
+     -->
+    <script>
+        var msg = 'hello'
+        let vm = new Vue({
+            el:'#app',
+            data:{
+                msg:msg
+            },
+        })
+    </script>
+</body>
+</html>

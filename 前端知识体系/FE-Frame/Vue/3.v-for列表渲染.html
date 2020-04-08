@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="src/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <li v-for='value,key,index in obj'>{{value}}--{{key}}--{{index}}</li>
+        </ul>
+    </div>
+<!-- 
+    指令v-for 列表渲染指令
+    语法：V-for='item,index in arr'
+          v-for='value,key,index in object'
+ -->
+
+    <script>
+        var vm = new Vue({
+            el:'#app',
+            data:{
+                obj:{
+                    a:1,
+                    b:2,
+                    c:3
+                }
+            }
+        })
+    </script>
+</body>
+</html>

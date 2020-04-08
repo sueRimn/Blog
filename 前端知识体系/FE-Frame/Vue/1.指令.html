@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="src/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <input type="text" v-on:input="inputHandle">
+        <input type="checkbox" >
+        <p>{{message}}</p>
+        <p>{{fn()}}</p>
+    </div>
+<!-- 
+    Vue中绑定事件
+    使用指令绑定
+    v-on:事件名=“表达式
+ -->
+    <script>
+        var message = 'sue';
+        var vm = new Vue({
+            el:'#app',
+            data:{
+                message
+            },
+            methods: {//定义方法
+                fn(){
+                    console.log(123);
+                },
+                inputHandle(evt){
+                    console.log(this === vm);//true
+                    console.log('触发了')
+                }
+            },
+        })
+    </script>
+</body>
+</html>

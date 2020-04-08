@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="src/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <input type="checkbox" v-model="checked">
+        <p v-if="checked">{{checked}}</p>
+        <p v-show="checked">{{checked}}</p>
+
+    </div>
+
+    <script>
+        /*
+            条件判断
+             v-if 
+            语法：v-if='表达式
+            根据表达式的值的真假条件渲染元素和移除元素
+            v-show
+            语法：v-show='表达式
+            根据表达式的值的真假条件，切换元素的css属性和display属性
+        */
+        let vm = new Vue({
+            el:'#app',
+            data:{
+                checked:true
+            }
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="src/vue.js"></script>
+    <style>
+    </style>
+</head>
+<body>
+    <div id="app">
+        <template v-if="loginType === 'username'">
+            <label>Username</label>
+            <input placeholder="输入用户名" type="text" key="username-input">
+        </template>
+        <template v-else>
+            <label>Email</label>
+            <input placeholder="输入邮箱地址" type="text" key="email-input">
+        </template>
+        <div>
+            <button @click="toggle">切换登录方式</button>
+        </div>
+    </div>
+    
+    <script>
+        var values = {msg:'hello sue'}
+        let vm = new Vue({
+            el:'#app',
+            data:{
+                loginType:'username'
+            },
+            methods: {
+                toggle(){
+                    if(this.loginType === 'username'){
+                        this.loginType = '';
+                    }else{
+                        this.loginType = 'username';
+                    }
+                }
+            },
+        })
+    </script>
+</body>
+</html>

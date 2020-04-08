@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="src/vue.js"></script>
+    <style>
+    </style>
+</head>
+<body>
+    <div id="app">
+        <div>
+            <blog-post
+            v-for="post in posts" 
+            v-bind:key="post.id"
+            v-bind:title="post.title"
+            ></blog-post>
+        </div>
+        <!-- 传递数值必须要用v-bind -->
+        <p>{{t1}}:<comp total="1+2"></comp></p>
+        <p>{{t2}}:<comp :total="1+2"></comp></p>
+        <div>name:{{dr.name}},age:{{dr.age}} <input type="text" v-model="tel"></div>
+        <br>
+        <div>
+            <span>vue自定义组件</span>
+
+        </div>
+        父组件：
+        <input type="text" v-model="val">
+        子组件：
+        <test :test="val"></test>
+    </div>
+    <!-- 
+        props验证：
+
+     -->
+    <script>
+        Vue.component('blog-post',{
+            props:['title'],
+            template:'<h3>{{title}}</h3>'
+        });
+        Vue.component('comp',{
+            props:['total'],
+            template:'<h3>total:{{total}}</h3>'
+        });
+        Vue.component('child',{
+            props:{
+
+            }
+        });
+        Vue.component('test',{
+            props:{
+                test:{
+                    twoWay:true
+                }
+            },
+            template:'<input v-model="test">'
+        })
+        var msg = 'hello'
+        let vm = new Vue({
+            el:'#app',
+            data:{
+                posts:[
+                    {id:1,title:'狐狸家的鱼'},
+                    {id:2,title:'鱼家的狐狸'},
+                    {id:3,title:'炸炸'}
+                ],
+                t1:"这里是传递字符串",
+                t2:"这里是v-bind动态语法，传递值会通过js的表达式计算",
+                tel:"1766375xxxx",
+                dr:{
+                    name:'sue',
+                    age:22
+                },
+                val:12
+            },
+        })
+        
+    </script>
+</body>
+</html>
