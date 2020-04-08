@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="src/vue.js"></script>
+    <style>
+    </style>
+</head>
+<body>
+    <div id="app">
+        <p>计算属性：{{time1}}</p>
+        <p>methods方法：{{time2()}}</p>
+        <button v-on:click="a++">a加1</button>
+        <p>{{msg}}</p>
+    </div>
+    <script>
+        var values = {msg:'hello sue'}
+        let vm = new Vue({
+            el:'#app',
+            data:{
+                a:1,
+                msg:''
+            },
+            // watch: {
+            //     a:function(val,oldVal){
+            //         this.msg = 'a的旧值为' + oldVal + ',新值为' + val;
+            //     }
+            // },
+            computed:{
+                time1:function(){
+                    return (new Date()).toLocaleTimeString()
+                }
+            },
+            methods: {
+                time2:function(){
+                    return (new Date()).toLocaleTimeString()
+                }
+            },
+        })
+        var unwatch = vm.$watch('a',function(val,oldVal){
+            if(val === 10){
+                unwatch();
+            }
+            this.msg = 'a的旧值为' + oldVal + ',新值为' + val;
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="src/vue.js"></script>
+    <script src="src/jquery.js"></script>
+    <script src="src/boostrap.js"></script>
+</head>
+<body>
+    <div id="app">
+        <input type="text" v-model="val">
+        <input 
+        type="button" 
+        value="发送" 
+        v-on:click="sendHandle">
+        {{val}}
+        <ul>
+            <li v-for="item in list" :key="item.id">{{item.title}}</li>
+        </ul>
+    </div>
+
+    <script>
+        // 数据的方法
+        let list = [
+            {
+                id:123,
+                title:'今天很开心'
+            }
+        ]
+        //list  一开始时没有值的，等到Ajax取值回来了  再改写list
+        let vm = new Vue({
+            el:'#app',
+            data:{
+                list,
+                val:''
+            },
+            methods: {
+                sendHandle(){
+                    this.list.push({
+                        id:Date.now(),
+                        title:this.val
+                    })
+                    this.val = ''//清空输入框
+                }
+            },
+        })
+        Vue.prototype.getNowFormatDate = function () {
+            var date = new Date();
+            var seperator1 = "-";
+            var year = date.getFullYear();
+            var month = date.getMonth()+1;
+            var strDate = date.getDate();
+            if(month >= 1 && month <= 9){
+                month = '0' + month;
+            }
+            if(strDate >= 0 && strDate <= 9){
+                strDate = "0" + strDate;
+            }
+            var currentDate = year + seperator1 + month + seperator1 + strDate;
+            return currentDate;
+        }
+        //模拟请求时间
+        // setTimeout(function(){
+        //     vm.list = [
+        //         {
+        //             id:123,
+        //             title:'今天很开心'
+        //         }
+        //     ]
+        // },2000)
+    </script>
+</body>
+</html>

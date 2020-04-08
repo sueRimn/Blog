@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="src/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <!-- 数据输入  -->
+        <input type="text" v-model="message" >
+        <!-- 控制显示状态 -->
+        <input type="checkbox" v-model="checked">
+        <!-- 显示状态 -->
+        <label for="checkbox">{{checked}}</label>
+        <!-- 页面显示 -->
+        <p v-show="checked">{{message}}</p>
+    </div>
+<!-- 
+    Vue中绑定事件
+    使用指令绑定
+    v-on:事件名=“表达式
+    
+    数据的双向绑定-v-model
+    数据-》页面
+    页面-》数据
+ -->
+    <script>
+        var message = 'sue';
+        var vm = new Vue({
+            el:'#app',
+            data:{
+                message,
+                checked:true
+            }
+        })
+    </script>
+</body>
+</html>

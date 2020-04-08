@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="src/vue.js"></script>
+    <style>
+    </style>
+</head>
+<body>
+    <div id="app">
+       <my-button></my-button>
+    </div>
+    <script>
+        //1。创建一个组件构造器
+        // let myButton = Vue.extend({//局部注册
+        //     template:'<button>点击我</button>'
+        // })
+        //2.注册组件，并指定组件的标签，组件的HTML标签为<my-button>
+        Vue.component('my-button',{
+            template:'<button>点击我</button>'
+        })
+        var msg = 'hello'
+        let vm = new Vue({
+            el:'#app',
+            data:{
+                msg:msg
+            },
+        })
+        
+    </script>
+</body>
+</html>

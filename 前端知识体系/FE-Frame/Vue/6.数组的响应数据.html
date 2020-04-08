@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="src/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <p>{{list}}</p>
+    </div>
+
+    <script>
+       //数据劫持 转成getter/setter
+        let vm = new Vue({
+            el:'#app',
+            data:{
+                list:[1,2,3]
+            }
+        })
+        //提供观察数组的变异方法：push()\pop()\shift()\unshift()\splice()\sort()\reverse() 触发视图更新
+        //会改变数组
+        vm.list.push(1000);
+
+        //不会改变原数组
+        vm.list.map(item =>item*3);
+        //可以改变
+        vm.list = vm.list.map(item =>item*3);
+        vm.list.length = 0
+        //通过下标改变值不可以
+        //可以这样
+        //vm.list.splice(0,1,'sue');
+        //vm.list.splice(1);
+    </script>
+</body>
+</html>

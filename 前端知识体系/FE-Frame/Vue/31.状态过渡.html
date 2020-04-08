@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="src/animate.css">
+    <script src="src/vue.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/velocity/1.2.3/velocity.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.14.1/lodash.min.js"></script>
+
+</div>
+
+    <style>
+    </style>
+</head>
+<body>
+    <div id="app" class="demo">
+       <input v-model.number="number" type="number" step="20">
+       <p>{{animatedNum}}</p>
+    </div>
+    <!-- 
+       1.状态动画与侦听器：通过侦听器能监听到任何数值属性的数值更新
+     -->
+    <script>
+        let vm = new Vue({
+            el:'#app',
+            data:{
+                number:0,
+                tweenedNum:0
+            },
+            computed:{
+                animatedNum(){
+                    return this.tweenedNum.toFixed(0);
+                }
+            },
+            watch: {
+                number:function(newValue){
+                    TweenLite.to(this.$data,0.5,{tweenedNum:newValue})
+                }
+            },
+        })
+    </script>
+</body>
+</html>

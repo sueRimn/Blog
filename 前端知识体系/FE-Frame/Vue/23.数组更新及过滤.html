@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="src/vue.js"></script>
+    <style>
+    </style>
+</head>
+<body>
+    <div id="app">
+        <div>
+            <button @click="push">push</button>
+            <button @click="pop">pop</button>
+            <button @click="shift">shift</button>
+            <button @click="unshift">unshift</button>
+            <button @click="splice">splice</button>
+            <button @click="sort">sort</button>
+            <button @click="reverse">reverse</button>
+        </div>
+        <ul>
+                <li v-for="item in items" :key="item.id">
+                    {{items.msg}}
+                </li>
+            </ul>
+    </div>
+        
+    <script>
+        let vm = new Vue({
+            el:'#app',
+            data:{
+                items:[
+                    {msg:'狐狸家的鱼'},
+                    {msg:'鱼家的狐狸'},
+                    {msg:'炸炸'}
+                ],
+                addValue:{msg:'match'}
+            },
+            methods: {
+                push(){
+                    this.items.push(this.addValue)
+                },
+                pop(){
+                    this.items.pop();
+                },
+                shift(){
+                    this.items.shift();
+                },
+                unshift(){
+                    this.items.unshift(this.addValue);
+                },
+                splice(){
+                    this.items.splice(0,1);
+                },
+                sort(){
+                    this.items.sort();
+                },
+                reverse(){
+                    this.items.reverse();
+                }
+            },
+        })
+    </script>
+</body>
+</html>

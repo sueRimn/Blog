@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="src/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <p>{{msg}}</p>
+        <p>miaoV.abc.{{miaoV.abc}}</p>
+        <p>{{miaoV.ke}}</p>
+    </div>
+
+    <script>
+       
+        let vm = new Vue({
+            el:'#app',
+            data:{
+                msg:'hello',
+                miaoV:{
+                    abc:123,
+                    ke:'我是新增的'
+                }
+            }
+        })
+
+        //改写属性的值，重新赋值
+        vm.miaoV = Object.assign({},vm.miaoV,{ke:'新的'})
+         //调用Vue的静态方法 set
+        //语法 ：Vue.set(target,prop,value)
+        //Vue.set(vm.miaoV,'ke','我是新增的');
+
+        //调用实例上的方法$set
+        //vm.$set(vm.obj,'ke','我是新增的');
+
+        //静态方法
+        function fn(){
+
+        }
+        fn.miaoV = function(){
+
+        }
+        let arr = new Array;
+        arr.push()
+
+        //静态方法时挂载在函数上的方法，在调用的时候通过函数调用
+        //原型上的方法,要通过实例调用
+    </script>
+</body>
+</html>
