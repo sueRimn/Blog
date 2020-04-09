@@ -29,18 +29,22 @@ suerimn@gmail.com | [sueRimn](https://juejin.im/user/5ac449906fb9a028b92d59d1) |
 ### [关于数组方法](https://github.com/sueRimn/Blog/issues/7)
 ### [关于字符串方法](https://github.com/sueRimn/Blog/issues/8)
 ### [ES6核心知识迷你包](https://github.com/sueRimn/Blog/issues/9)
+### [ES6小总](https://github.com/sueRimn/Blog/issues/22)
 ### [DOM事件机制](https://github.com/sueRimn/Blog/issues/11)
 ### [深入理解作用域与闭包](https://github.com/sueRimn/Blog/issues/12)
 ## 「 浏览器浅析 」
 ### [常见浏览器兼容性处理](https://github.com/sueRimn/Blog/blob/master/%E5%89%8D%E7%AB%AF%E7%9F%A5%E8%AF%86%E4%BD%93%E7%B3%BB/%E6%B5%8F%E8%A7%88%E5%99%A8/%E6%B5%8F%E8%A7%88%E5%99%A8%E5%85%BC%E5%AE%B9%E6%80%A7%E9%97%AE%E9%A2%98.md)
 ### [浏览器数据存储速写](https://github.com/sueRimn/Blog/blob/master/%E5%89%8D%E7%AB%AF%E7%9F%A5%E8%AF%86%E4%BD%93%E7%B3%BB/%E6%B5%8F%E8%A7%88%E5%99%A8/%E6%B5%8F%E8%A7%88%E5%99%A8%E6%95%B0%E6%8D%AE%E5%AD%98%E5%82%A8.md)
+### [理解Cookie](https://github.com/sueRimn/Blog/issues/18)
+### [浏览器缓存机制](https://github.com/sueRimn/Blog/issues/20)
+### [从输入URL到页面渲染经历了什么（页面渲染原理）](https://github.com/sueRimn/Blog/issues/21)
+### [理解跨域和解决方法](https://github.com/sueRimn/Blog/issues/19)
 ## 「 Vue全家桶 」
 ### [Vuex简单理解](https://github.com/sueRimn/Blog/issues/1)
 ### [Vue针对性笔记](https://github.com/sueRimn/Blog/tree/master/%E5%89%8D%E7%AB%AF%E7%9F%A5%E8%AF%86%E4%BD%93%E7%B3%BB/%E5%89%8D%E7%AB%AF%E6%A1%86%E6%9E%B6/Vue)
 ### [如何在Vuex中管理Mock数据](https://github.com/sueRimn/Blog/issues/2)
 ## 「 HTTP 」
-## 「浏览器」
-### [理解Cookie](https://github.com/sueRimn/Blog/issues/18)
+### [理解HTTP与HTTPS工作原理]()
 ## 「 调试方法 」 
 ### 1.[Chrome调试](https://github.com/sueRimn/Blog/blob/master/%E5%89%8D%E7%AB%AF%E7%9F%A5%E8%AF%86%E4%BD%93%E7%B3%BB/Chrome%E8%B0%83%E8%AF%95.md)
 ## 「前端安全与性能」
