@@ -1,5 +1,5 @@
 
-# CSS
+# `CSS
 ## CSS常用属性
 ## 盒模型
 > 盒模型（`box model`）是元素大小的呈现方式。盒模型默认的值是`content-box`，新增的值是`padding-box`和border-box`
@@ -120,7 +120,8 @@ HTML元素定位默认是静态的，不受顶部、底部、左部、右部影�
 #### 4.清除浮动的原因
 当容器的高度`auto`，并且内有浮动元素，容器的高度不能自动撑开以适应内容的高度，是的内容溢出到容器外部，从而影响布局造成浮动溢出，所以要进行CSS清除浮动。
 #### 5.清除浮动的方法
-** 使用带clear属性的空元素**：
+**使用带clear属性的空元素**：
+
 ```html
 <div class="box-wrapper">
     <div class="box"></div>
@@ -169,7 +170,33 @@ HTML元素定位默认是静态的，不受顶部、底部、左部、右部影�
 **BFC清除浮动**：
 
 给父元素设置`overflow:hidden`实现简单的BFC清除浮动，但是这样元素阴影和下拉菜单会被截断。
+
+**使用CSS的overflow属性**
+
+给浮动元素的容器添加·overflow:hidden·，或`overflow:auto`可以清除浮动
+
 #### [返回顶部](#css)
+
+## 重绘与重排
+
+重排：浏览器重新构造渲染树，这个过程称为重排
+
+重绘：浏览器将受影响的部分重新绘制在屏幕上
+
+产生重绘的原因：
+
+* 添加或者删除可见的DOM元素
+* 元素尺寸位置改变
+* 浏览器页面初始化
+* 浏览器窗口大小改变，重排一定导致重绘，重绘不一定导致重排
+
+减少重绘重排的方法：
+
+* 不在布局信息改变的时候做DOM查询
+* 使用csstext、className一次性改变属性
+* 使用fragment
+* 对于多次重排的元素比如动画，使用绝对定位脱离文档流
+
 ## css居中布局
 [水平居中+垂直居中+水平垂直居中](https://github.com/sueRimn/Blog/tree/master/%E5%89%8D%E7%AB%AF%E7%9F%A5%E8%AF%86%E4%BD%93%E7%B3%BB/css/%E5%85%83%E7%B4%A0%E5%B1%85%E4%B8%AD)
 ## css常见对齐方式
@@ -237,6 +264,17 @@ text {
     -webkit-box-orient: vertical
 }
 ```
+
+## transition和animation的区别
+
+* `transition`需要触发事件来改变属性，`animation`不需要
+* `transition`是两帧，从`from`到`to`，`animation`是一帧一帧的
+
+## 使元素消失的方法有哪些，有什么区别
+
+* `opacity:0`：不会改变页面布局，绑定事件也能触发
+* `visibility：hidden`：不会改变页面布局，绑定事件不会触发
+* `display:none`：会改变页面布局，相当于元素被移除
 
 ## CSS规范与书写顺序
 

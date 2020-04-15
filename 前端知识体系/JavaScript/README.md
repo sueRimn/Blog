@@ -1,19 +1,73 @@
-# JavaScript
+```JavaScript
+
+```
+
+## 语言特性
+
+* 运行在客户端浏览器上
+* 不用预编译，直接解析执行代码
+* 弱类型语言，较为灵活
+* 跨平台语言、脚本语言、解释性语言
+
 ## 数据类型
-一共有七种数据类型，主要为两大类：原始类型、对象类型
-### 基础类型（原始值）
+一共有七种数据类型，主要为两大类：值类型（基本类型）、引用类型
+### 基本类型（原始值）
+
+基本数据类型是按值访问的，可以操作保存在变量中的实际值
+
 * 数值`number`：用于任何类型的数字，包括整数或浮点数
 * 字符串`string`：字符串
 * 布尔值`boolean`：逻辑类型，`true`和`false`
 * 空值`null`：未知的值
 * 无定义`undefined`：未定义的值
 * `symbol`：创建对象的唯一标识符（`ES6`新增）
-### 复杂类型（对象值）
+### 引用类型（对象值）
 * 对象`object`：复杂的数据结构
-### instance操作符
+* 数组
+* 函数
+### 基本数据类型和引用类型的区别
+
+* 基本数据类型的变量的值是不可变的，当变量重新赋值后并不是变量的值改变了，变量名只是指向变量的一个指针，所以只是指针的指向改变了，该变量是不变的，但是引用类型可以改变
+* 基本数据类型不可以添加属性和方法，引用类型可以
+* 基本数据类型的赋值是简单赋值，引用类型的赋值是对象引用
+* 基本数据类型的比较是值的比较，引用类型的比较是对象内存地址的比较
+* 基本数据类型的值存放在栈区，引用类型的值保存在栈区和堆区
+
+## NaN的理解
+
+`NaN`是JS的特殊值，表示非数字（`Not a Number`），`NaN`不是数字，但是数据类型是数字，它不等于任何值，包括自身，在布尔运算时被当做`false`，`NaN`与任何数运算得到的结果都是`NaN`
+
+## JS的作用域类型
+
+JS采用的是词法作用域，也就是静态作用域，所以函数的作用域在函数定义的时候就决定了
+
+* 词法作用域
+* 函数作用域
+* 块级作用域
+
+## undefined与null的区别
+
+`null`表示没有对象，`undefined`表示缺少值，就是此处应该有一个值但是还没有定义
+
+```javascript
+undefined == null // true
+undefined === null // false
+!undefined == !null // true
+!undefined === !null // true
+```
+
+> 在做==比较时，不同类型的数据会先转换成一致后在做比较，===中如果类型不一致就直接返回false，一致的才会比较
+
+## instance操作符
 用来比较两个操作数的构造函数。
 
-### 隐式转换
+## 类型判断
+
+首先判断是否为`null`，之后用`typeof`判断类型，如果是`object`的话，再用`Array.isArray`判断是否为数组，如果是数字的话用`isNaN`判断是否是`NaN`即可
+
+`typeof()、instanceof、Object.prototype.toString.call()`
+
+## 隐式转换
 显示转换主要涉及三种转换：
 * 值->原始值：`ToPrimitive()`
 * 值->数字：`ToNumber()`
@@ -110,6 +164,149 @@ arr.forEach(function(item, index, array) {
 * `for...in`（不推荐）
 * `forEach`
 * `map`：遍历数组返回新数组
+### 数组去重
+
+* `indexOf`循环去重
+
+```javascript
+// 方法1：
+function unique(arr) {
+    if (!Array.isArray(arr)) {
+        return
+    }
+    let res = []
+    for (let i = 0; i < arr.length; i++) {
+        if (res.indexOf(arr[i] === -1)) {
+            res.push(arr[i])
+        }
+    }
+    return res
+}
+
+// 方法2：
+function unique(arr) {
+    if (!Array.isArray(arr)) {
+        return
+    }
+    return Array.prototype.filter.call(arr, (item, index) => {
+        return arr.indexOf(item) === index
+    })
+}
+```
+
+* `set`与解构赋值去重（推荐）：Set函数可以接受一个数组（或类数组对象）作为参数来初始化，利用该特性能做到给数组去重
+
+```javascript
+function unique(arr) {
+    if (!Array.isArray(arr)) {
+        return
+    }
+    return [...new Set[arr]]
+}
+```
+
+* `Array.from`与`Set`去重
+
+```javascript
+function unique(arr) {
+    if (!Array.isArray(arr)) {
+        return
+    }
+    return Array.from(new Set(arr))
+}
+```
+
+* 相邻元素去重：根据排序后的结果进行遍历及相邻元素比对，如果相等则跳过改元素，直到遍历结束
+
+```javascript
+function unique(arr) {
+    if (!Array.isArray(arr)) {
+        return
+    }
+    arr = arr.sort()
+    let res = []
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i] !== arr[i-1]) {
+            res.push(arr[i])
+        }
+    }
+    return res
+}
+```
+
+* 双循环去重（不推荐）
+
+```javascript
+function unique(arr) {
+    if (!Array.isArray(arr)) {
+        console.log('type error!')
+        return
+    }
+    let res = [arr[0]]
+    for (let i = 1; i < arr.length; i++) {
+        let flag = true
+        for (let j = 0; j < res.length; j++) {
+            if (arr[i] === res[j]) {
+                flag = false;
+                break
+            }
+        }
+        if (flag) {
+            res.push(arr[i])
+        }
+    }
+    return res
+}
+```
+
+* 对象属性去重：创建空对象，遍历数组，将数组中的值设为对象的属性，并给该属性赋初始值1，每出现一次，对应的属性值增加1，这样，属性值对应的就是该元素出现的次数了
+
+```javascript
+function unique(arr) {
+    if (!Array.isArray(arr)) {
+        console.log('type error!')
+        return
+    }
+    let res = [], obj = {}
+    for (let i = 0; i < arr.length; i++) {
+        if (!obj[arr[i]]) {
+            res.push(arr[i])
+            obj[arr[i]] = 1
+        } else {
+            obj[arr[i]]++
+        }
+    }
+    return res
+}
+```
+
+### 判断是否为数组
+
+*  Array.isArray(arg)：需要考虑兼容
+
+```javascript
+if (!Array.isArray) {
+    Array.isArray = function(arg) {
+        return Object.prototype.toString.call(arg) = '[object Array]'
+    }
+}
+```
+
+* instanceof
+
+```javascript
+let ary = [1, 2, 3]
+console.log(arr instanceof Array) // true
+```
+
+* 原型链方法
+
+  ```javascript
+  let ary = [1, 2, 3]
+  console.log(ary._prototype_.constructor === Array) // true
+  console.log(ary.constructor === Array)
+  ```
+
 ## 对象(`Object`)
 * 对象是用来存储键值对和属性的实体
 * 对象是单个实物的抽象
@@ -127,6 +324,21 @@ arr.forEach(function(item, index, array) {
 * 遍历对象：`for(let key in obj)`
 * 对象根据引用来复制或者赋值：变量存储的不是对象的“值”，而是值的“引用”（内存地址）。所以复制变量或者传递变量到方法中只是复制了对象的引用。 所有的引用操作（像增加，删除属性）都作用于同一个对象
 * 深拷贝使用`Object.assign`或者[_.cloneDeep(obj)](https://lodash.com/docs#cloneDeep)
+### new 操作符原理
+
+* 创建一个类的实例：创建一个空对象obj，然后把这个空对象的__proto__设置为构造函数的`prototype`
+* 初始化实例：构造函数被传入参数并调用，关键字`this`被设定指向该实例`obj`
+* 返回实例`obj`
+
+### 继承的实现方式
+
+* 原型链继承：将父类的实例作为子类的原型，子类能够访问父类的原型属性和方法，不能多继承
+* 构造继承：复制子类实例属性给子类（子类不能继承原型属性和方法），能实现多继承
+* 实例继承：为父类实例添加新特性，作为子类实例返回，不能多继承
+* 拷贝继承：支持多继承，但效率低
+* 组合继承：调用父类构造继承父类的属性并保留传参优点，通过将父类实例作为子类原型，实现函数复用
+* 寄生组合继承：通过寄生方式，砍掉父类实例属性
+
 ### 原型与原型链
 #### 原型`prototype`
 每个函数都有一个`prototype`属性，指向对象。
@@ -327,7 +539,8 @@ function one () {
 * 封装对象的私有的变量和方法
   * 优点：避免全局污染
   * 缺点：内存常驻，增加内存开销，使用不当造成内存泄漏
-* 读取函数内部的变量，让变量始终保持在内存中
+* 读取函数内部的变量，让变量始终保持在内存中，模仿块级作用域
+* 保存外部函数的变量
 
 **闭包的用处**
 
@@ -388,10 +601,276 @@ return {
 
 ```
 
-### 异步回调地狱
+## 异步回调地狱
 
 #### 解决方法
 
 * promise
-* generator
+* generator：利用`Generator`函数的暂停执行的效果，可以把异步操作写在`yield`语句里面，等到调用`next`方法时再往后执行。
+  * 分段执行，可以暂停
+  * 可以控制阶段和每个阶段的返回值
+  * 可以知道是否执行到结尾
 * async/awit
+  * `async `表示这是一个async函数，`await`只能用在这个函数里面
+  * `await `表示在这里等待异步操作返回结果，再继续执行
+  * `await `后一般是一个`promise`对象
+
+## 事件流（事件模型）
+
+事件流描述的是从页面中接收事件的顺序
+
+DOM2级事件流包括下面几个阶段：
+
+* 事件捕获阶段
+
+* 处于目标阶段
+
+* 事件冒泡阶段
+
+在DOM标准事件模型中，是先捕获后冒泡：点击`DOM`节点时，事件传播顺序是事件捕获阶段，从上往下传播，然后到达事件目标节点，最后是冒泡阶段，从下往上传播。
+
+DOM节点添加事件监听方法`addEventListener`，参数`capture`可以指定该监听是添加在事件捕获阶段还是事件冒泡阶段，为`false`是事件冒泡，为`true`是事件捕获，并非所有的事件都支持冒泡，比如`focus`、`blur`等等，我们可以通过`event.bubbles`来判断
+
+但是如果要实现先冒泡后捕获的效果，对于同一个事件，监听捕获和冒泡，分别对应相应的处理函数，监听到捕获事件，先暂缓执行，直到冒泡事件被捕获后再执行捕获事件。
+
+事件模型常用方法：
+
+* `event.stopPropagation`：阻止捕获和冒泡阶段中当前事件的进一步传播
+* `event.stopImmediatePropagetion`：阻止调用相同事件的其他侦听器
+* `event.preventDefault`：取消该事件（假如事件是可取消的）而不停止事件的进一步传播
+* `event.target`：指向触发事件的元素，在事件冒泡过程中这个值不变
+* `event.currentTarget = this`：只有被点击时目标元素的`target`才会等于`currentTarget`
+
+## 事件委托
+
+在父元素层面阻止事件向子元素传播，也可代替子元素执行某些操作。
+
+不在事件的发生地（直接dom）上设置监听函数，而是在其父元素上设置监听函数，通过事件冒泡，父元素可以监听到子元素上事件的触发，通过判断事件发生元素`DOM`的类型，来做出不同的响应
+
+* 减少内存消耗，节约效率
+* 动态绑定事件
+
+## mouseover和mouseenter的区别
+
+* `mouseover`：当鼠标移入元素或其子元素都会触发事件，所以有一个重复触发，冒泡的过程。对应的移除事件是`mouseout`
+* `mouseenter`：当鼠标移除元素本身（不包含元素的子元素）会触发事件，也就是不会冒泡，对应的移除事件是`mouseleave`
+
+## 图片懒加载和预加载
+
+* 懒加载：主要目的是作为服务器的优化，减少请求数或延迟请求数
+* 预加载：提前加载图片，当用户需要查看时直接从本地缓存中渲染
+
+区别就在于预加载是提前加载，懒加载是迟缓加载或者不加载
+
+## JS位置的区别
+
+* `clientHeight`：表示的是可视区域的高度，不包含`border`和滚动条
+
+* `offsetHeight`：表示可视区域的高度，包含了`border`和滚动条
+
+* `scrollHeight`：表示了所有区域的高度，包含了因为滚动被隐藏的部分
+
+* `clientTop`：表示边框`border`的厚度，在未指定的情况下一般为0
+
+* `scrollTop`：滚动后被隐藏的高度，获取对象相对于由`offsetParent`属性指定的父坐标(css定位的元素或body元素)距离顶端的高度。
+
+## 异步加载js 的方法
+
+* `defer`：浏览器知道它将能够安全地读取文档的剩余部分而不用执行脚本，它将推迟对脚本的解释，直到文档已经显示给用户为止
+* `async`
+* 创建`script`标签，插入到`DOM`中
+
+## JS节流（Throttling）和防抖（Debouncing）
+
+### 节流
+
+节流函数，只允许一个函数在一段时间内执行一次
+
+```javascript
+// 简单的节流函数
+function throttle(func, wait, mustRun) {
+    var timeout,
+        startTime = new Date();
+ 
+    return function() {
+        var context = this,
+            args = arguments,
+            curTime = new Date();
+ 
+        clearTimeout(timeout);
+        // 如果达到了规定的触发时间间隔，触发 handler
+        if(curTime - startTime >= mustRun){
+            func.apply(context,args);
+            startTime = curTime;
+        // 没达到触发间隔，重新设定定时器
+        }else{
+            timeout = setTimeout(func, wait);
+        }
+    };
+};
+// 实际想绑定在 scroll 事件上的 handler
+function realFunc(){
+    console.log("Success");
+}
+// 采用了节流函数
+window.addEventListener('scroll',throttle(realFunc,500,1000));
+```
+
+### 防抖
+
+在一定时间内，规定事件被触发的次数
+
+```javascript
+// 简单的防抖动函数
+function debounce(func, wait, immediate) {
+    // 定时器变量
+    var timeout;
+    return function() {
+        // 每次触发 scroll handler 时先清除定时器
+        clearTimeout(timeout);
+        // 指定 xx ms 后触发真正想进行的操作 handler
+        timeout = setTimeout(func, wait);
+    };
+};
+ 
+// 实际想绑定在 scroll 事件上的 handler
+function realFunc(){
+    console.log("Success");
+}
+ 
+// 采用了防抖动
+window.addEventListener('scroll',debounce(realFunc,500));
+// 没采用防抖动
+window.addEventListener('scroll',realFunc);
+```
+
+## JS的垃圾回收机制
+
+由于字符串、对象和数组没有固定大小，所有当他们的大小已知时，才能对他们进行动态的存储分配。态地分配了内存，最终都要释放这些内存以便再次使用，否则，`JavaScript`的解释器将会消耗完系统中所有可用的内存，造成系统崩溃。
+
+### 垃圾回收方法
+
+#### 标记清除
+
+垃圾回收器会在运行的时候给存储在内存中的变量都加上标记，然后去掉环境变量中的变量以及被环境变量中的变量所引用的变量，删除所有被编辑的变量，删除变量无法在环境变量中被访问会被删除买最好垃圾回收器完成内存清除的工作，回收被占用的内存。
+
+#### 计数引用
+
+当对象被引用的次数为零时进行回收，但是循环引用时，两个对象都至少被引用了一次，因此导致内存泄漏
+
+## eval是做什么的
+
+将对应的字符串解析成JS并执行，非常耗性能（一次解析，一次执行）
+
+## Commonjs、AMD和CMD的区别
+
+模块是能实现特定功能的文件
+
+* `Commonjs`：服务端的模块化，同步定义的模块化，每个模块都是单独的作用域，`modules.exports`模块输出，`require()`引入模块
+* `AMD`：异步模块定义
+  * 多个文件有依赖关系，被依赖的文件需要早于依赖它的文件加载到浏览器
+  * 加载的时候浏览器会停止页面渲染，加载的文件越多，页面失去响应的时间越长
+* ``
+
+## 去除字符串首尾空格
+
+```javascript
+
+// 去除首尾空格
+str.replace(/(^s*)|(\s*$)/g, "")
+//去除左边空格
+str.replace(/(^\s*)/g, "");
+ 
+//去除右边空格
+str.replace(/(\s*$)/g, "");
+ 
+//引用JQ之后
+$.trim(str);
+//另一种写法
+jQuery.trim(str);
+
+ String.prototype.Trim = function(){
+        return this.replace(/(^\s*)|(\s*$)/g, "");
+ }
+```
+
+## JS实现跨域
+
+* JSONP：通过动态创建`script`，再请求一个带参网址实现跨域通信
+* document.domain` +` iframe`跨域：两个页面都通过js强制设置`document.domain`为基础主域，就实现了同域
+* `location.hash` + `iframe`跨域：a欲与b跨域相互通信，通过中间页c来实现。 三个页面，不同域之间利用iframe的location.hash传值，相同域之间直接js访问来通信
+* `postMessage`跨域：可以跨域操作的window属性之一
+* `CORS`：服务端设置`Access-Control-Allow-Origin`即可，前端无须设置，若要带cookie请求，前后端都需要设置
+* 代理跨域：启一个代理服务器，实现数据的转发
+
+## Promise
+
+`Promise`是一个对象，保存着未来要结束的事件，有两个特征：
+
+* 对象的状态不受外部影响，`Promise`对象代表一个异步操作，有三种状态：`pending`进行中，`fulfilled`已成功，`rejected`已失败，只有异步操作的结果，才可以决定当前是哪一种状态，任何其他操作都无法改变这个状态
+* 一旦状态改变，就不会再变，`promise`对象状态改变只有两种可能，从`pending`改到`fulfilled`或者从`pending`改到`rejected`，只要这两种情况发生，状态就凝固了，不会再改变，这个时候就称为定型`resolved`
+
+```javascript
+let promise = new Promise((resolve, reject) => {
+    setTimeout(() => {
+        resolve('ok')
+    }, 1000)
+})
+// then接收两个函数,分别对应resolve和reject状态的回调,函数中接收实例化时传入的参数
+promise.then((val) => {
+    
+}).catch(err => {
+    
+})
+
+```
+
+代码执行顺序：同步执行的代码-》`promise.then`->`settimeout`
+
+## 深浅拷贝的区别和实现
+
+### 深拷贝
+
+完全拷贝一个对象，即使嵌套了对象，两者也会互相分离，修改一个对象的属性，不会影响另一个
+
+```javascript
+// 原理是JOSN对象中的stringify可以把一个js对象序列化为一个JSON字符串，parse可以把JSON字符串反序列化为一个js对象，通过这两个方法，也可以实现对象的深复制
+// 此方法不能拷贝函数
+let arr = [1, true, ['a', 'b'], {one: 1}]
+let new_arr = JSON.parse(JSON.stringify(arr))
+
+
+// 判断属性值类型，如果是对象就使用递归调用
+let deepCopy = obj => {
+    if (typeof obj !== 'object') return 
+    let newObj = obj instanceof Array ? [] : {}
+    for (let key in obj) {
+        if (obj.hasOwnProperty(key)) {
+            newObj[key] = typeof obj[key] ==='object' ? deepCopy(obj[key]) : obj[key]
+        }
+    }
+    return newObj
+}
+```
+
+### 浅拷贝
+
+当数组是基本类型时，一般用slice`、`concat`方法返回一个新数组的特性可以实现拷贝，但是如果数组嵌套了对象或者数组，用`concat`方法克隆就不完整，之后拷贝到对象或者数组的引用，对新旧数组进行修改，两者都会发生变化，这种复制引用的方法就叫浅拷贝
+
+```javascript
+
+```
+
+## JS加载阻塞解决方案
+
+* 指定`script`标签的`async`属性
+* 如果async="async"，脚本相对于页面的其余部分异步地执行（当页面继续进行解析时，脚本将被执行）
+* 如果async="async"，脚本相对于页面的其余部分异步地执行（当页面继续进行解析时，脚本将被执行）
+
+## 设计模式
+
+* 单例模式：核心结构中值包含一个单例的特殊类，一个类只有一个实例，即一个类只有一个对象实例
+* 工厂模式：在创建对象时不会对客户端暴露创建逻辑，并且是通过使用一个共同的接口来指向新创建的对象
+* 发布订阅模式：发布订阅是一种[消息](https://baike.baidu.com/item/消息)[范式](https://baike.baidu.com/item/范式)，消息的发送者（称为发布者）不会将消息直接发送给特定的接收者（称为订阅者）。而是将发布的消息分为不同的类别，无需了解哪些订阅者（如果有的话）可能存在。同样的，订阅者可以表达对一个或多个类别的兴趣，只接收感兴趣的消息，无需了解哪些发布者（如果有的话）存在
+* 装饰者模式：在不改变元对象的基础上，对这个对象进行包装和拓展（包括添加属性和方法），从而使这个对象可以有更复杂的功能
+
